@@ -1,86 +1,115 @@
 import FeatureCard from "./FeatureCard";
 import { 
-  Workflow, 
   MessageSquare, 
+  Smartphone, 
   BarChart3, 
-  Users, 
+  Globe, 
   Zap, 
   Shield,
-  Target,
-  Inbox
+  Code,
+  Settings
 } from "lucide-react";
 
 const FeaturesSection = () => {
-  const features = [
+  const services = [
     {
-      icon: Workflow,
-      title: "Visual Workflow Builder",
-      description: "Design complex customer journeys with our intuitive drag-and-drop interface. No coding required.",
+      icon: MessageSquare,
+      title: "A2P SMS Service",
+      description: "Enterprise-grade Application-to-Person SMS service with global reach and 99.9% uptime guarantee.",
       gradient: true
     },
     {
-      icon: MessageSquare,
-      title: "Omnichannel Messaging",
-      description: "Reach customers across email, SMS, push notifications, and in-app messages from one platform."
+      icon: Smartphone,
+      title: "Bulk SMS Marketing",
+      description: "Scale your marketing campaigns with our enterprise bulk SMS platform designed for high-volume sending."
+    },
+    {
+      icon: Code,
+      title: "SMS API Integration",
+      description: "Seamlessly integrate SMS capabilities into your applications with our robust RESTful APIs."
+    },
+    {
+      icon: Globe,
+      title: "Omnichannel Platform",
+      description: "Connect with customers across multiple channels including SMS, WhatsApp, and voice from one platform.",
+      gradient: true
     },
     {
       icon: BarChart3,
-      title: "Advanced Analytics",
-      description: "Get deep insights into customer behavior and campaign performance with real-time dashboards."
-    },
-    {
-      icon: Users,
-      title: "Audience Segmentation",
-      description: "Create precise customer segments based on behavior, preferences, and engagement patterns.",
-      gradient: true
-    },
-    {
-      icon: Zap,
-      title: "Real-time Automation",
-      description: "Trigger personalized messages instantly based on customer actions and behavioral data."
+      title: "Analytics & Reporting",
+      description: "Advanced analytics and real-time reporting to track campaign performance and optimize engagement."
     },
     {
       icon: Shield,
       title: "Enterprise Security",
-      description: "Bank-level security with SOC 2 compliance, GDPR ready, and advanced data protection."
+      description: "Bank-level security with SOC 2 compliance, GDPR ready, and advanced data protection protocols."
     },
     {
-      icon: Target,
-      title: "Personalization Engine",
-      description: "Deliver hyper-personalized experiences using AI-powered recommendations and content.",
+      icon: Zap,
+      title: "Wholesale SMS",
+      description: "High-volume SMS solutions for service providers and enterprises with competitive pricing.",
       gradient: true
     },
     {
-      icon: Inbox,
-      title: "Unified Inbox",
-      description: "Manage all customer conversations in one place with intelligent routing and automation."
+      icon: Settings,
+      title: "SMPP Connectivity",
+      description: "Direct SMPP connections for maximum reliability and control over your messaging infrastructure."
     }
   ];
 
   return (
-    <section id="features" className="py-20 relative">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Everything You Need to
-            <span className="gradient-text"> Engage Customers</span>
+    <section id="services" className="py-32 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 cyber-grid opacity-5"></div>
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
+          <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
+            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Our Services</span>
+          </div>
+          
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+            <span className="text-glow">Power Your Business</span>
+            <br />
+            <span className="gradient-text">With Next-Gen Messaging</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our comprehensive platform combines the power of automation with the simplicity of visual design.
-            Build, test, and optimize customer experiences that drive results.
+          
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            From enterprise SMS solutions to omnichannel communication platforms, 
+            we provide the infrastructure you need to reach customers globally.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
             <FeatureCard
               key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              gradient={feature.gradient}
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+              gradient={service.gradient}
             />
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-20">
+          <div className="glass-strong p-12 rounded-3xl max-w-4xl mx-auto hover-lift">
+            <h3 className="text-4xl font-bold mb-6 gradient-text">Ready to Transform Your Communication?</h3>
+            <p className="text-xl text-muted-foreground mb-8">
+              Join thousands of businesses already using our platform to engage customers worldwide.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button className="glass-strong px-10 py-4 rounded-2xl hover-glow transition-all duration-300 text-lg font-semibold">
+                Start Free Trial
+              </button>
+              <button className="bg-gradient-primary px-10 py-4 rounded-2xl text-white hover-lift pulse-neon transition-all duration-300 text-lg font-semibold">
+                Contact Sales
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
