@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Zap } from "lucide-react";
 import { useState } from "react";
+import LogoWithBackground from "@/components/LogoWithBackground";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,11 +11,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/b8a21206-8d69-4993-bbf9-6312c3880ab0.png" 
-              alt="NeoM Engage Logo" 
-              className="h-10 w-auto logo-glow"
-            />
+            <LogoWithBackground className="h-12 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
