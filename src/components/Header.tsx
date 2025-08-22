@@ -9,13 +9,12 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50 glass-strong border-b border-purple-500/20">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             <img 
-              src="/lovable-uploads/0a68ecfa-c129-42a6-a0ac-fcad7fa2a1ed.png" 
-              alt="NeoMengage Logo" 
-              className="w-10 h-10"
+              src="/lovable-uploads/b8a21206-8d69-4993-bbf9-6312c3880ab0.png" 
+              alt="NeoM Engage Logo" 
+              className="h-10 w-auto logo-glow"
             />
-            <span className="text-2xl font-bold gradient-text">NeoMengage</span>
           </div>
 
           {/* Desktop Navigation */}
