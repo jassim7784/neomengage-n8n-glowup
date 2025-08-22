@@ -71,7 +71,9 @@ export default {
 			},
 			boxShadow: {
 				'primary': 'var(--shadow-primary)',
-				'glass': 'var(--shadow-glass)'
+				'glass': 'var(--shadow-glass)',
+				'neon': 'var(--shadow-neon)',
+				'cyber': 'var(--shadow-cyber)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
