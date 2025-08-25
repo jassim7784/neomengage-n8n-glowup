@@ -16,19 +16,23 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-foreground hover:text-primary transition-smooth relative group">
-              Services
+            <div className="relative group">
+              <a href="#services" className="text-foreground hover:text-primary transition-smooth relative group">
+                Services
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </div>
+            <div className="relative group">
+              <a href="#products" className="text-foreground hover:text-primary transition-smooth relative group">
+                Products & Solutions
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </div>
+            <a href="/blogs" className="text-foreground hover:text-primary transition-smooth relative group">
+              Blogs
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#solutions" className="text-foreground hover:text-primary transition-smooth relative group">
-              Solutions
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#products" className="text-foreground hover:text-primary transition-smooth relative group">
-              Products
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-smooth relative group">
+            <a href="/contact" className="text-foreground hover:text-primary transition-smooth relative group">
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -57,13 +61,13 @@ const Header = () => {
             <a href="#services" className="block text-foreground hover:text-primary transition-smooth">
               Services
             </a>
-            <a href="#solutions" className="block text-foreground hover:text-primary transition-smooth">
-              Solutions
-            </a>
             <a href="#products" className="block text-foreground hover:text-primary transition-smooth">
-              Products
+              Products & Solutions
             </a>
-            <a href="#contact" className="block text-foreground hover:text-primary transition-smooth">
+            <a href="/blogs" className="block text-foreground hover:text-primary transition-smooth">
+              Blogs
+            </a>
+            <a href="/contact" className="block text-foreground hover:text-primary transition-smooth">
               Contact
             </a>
             <div className="flex flex-col space-y-3 pt-4 border-t border-purple-500/20">
