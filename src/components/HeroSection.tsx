@@ -29,21 +29,21 @@ const HeroSection = () => {
                 alt="NeoMengage Logo" 
                 className="w-8 h-8"
               />
-              <span className="text-sm font-semibold gradient-text-neon">Next-Gen Communication Platform</span>
+              <span className="text-sm font-semibold gradient-text-neon">Advanced Business Communication Solutions</span>
             </div>
           </div>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Revolutionize</span>
+            <span className="text-glow">Enhance Business</span>
             <br />
-            <span className="gradient-text">Customer Engagement</span>
+            <span className="gradient-text">Communication</span>
             <br />
-            <span className="text-cyan-400">Beyond Imagination</span>
+            <span className="text-cyan-400">With Innovation</span>
           </h1>
           
           <p className="text-2xl md:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
-            Power your business with <span className="gradient-text-neon font-semibold">AI-driven SMS solutions</span>, 
-            omnichannel communication, and enterprise-grade infrastructure that scales infinitely.
+            Comprehensive communication platform offering <span className="gradient-text-neon font-semibold">end-to-end messaging solutions</span> 
+            from bulk SMS to web development services, emphasizing reliability, security, and scalability.
           </p>
 
           {/* Stats Row */}

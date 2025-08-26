@@ -13,11 +13,11 @@ const ServicesSection = () => {
     {
       icon: MessageSquare,
       title: "A2P SMS Service",
-      description: "Enterprise-grade Application-to-Person SMS with global carrier partnerships and premium routing.",
+      description: "Enterprise-grade Application-to-Person SMS with global carrier partnerships and premium routing for OTP delivery, transactional notifications, and real-time alerts.",
       features: [
-        "99.9% uptime guarantee",
-        "Global coverage 200+ countries",
-        "Premium carrier connections",
+        "High deliverability rates",
+        "Global reach capabilities",
+        "OTP & transactional SMS",
         "Real-time delivery reports"
       ],
       gradient: "gradient-primary"
@@ -25,11 +25,11 @@ const ServicesSection = () => {
     {
       icon: Smartphone,
       title: "Bulk SMS Marketing",
-      description: "Scale your marketing campaigns with our enterprise bulk SMS platform for high-volume sending.",
+      description: "Scale your marketing campaigns with mass messaging, marketing automation, and customer engagement tools for enterprise bulk SMS.",
       features: [
-        "High-volume processing",
-        "Campaign scheduling",
-        "Audience segmentation",
+        "Mass messaging campaigns",
+        "Marketing automation",
+        "Customer engagement tools",
         "Performance analytics"
       ],
       gradient: "gradient-neon"
@@ -37,24 +37,24 @@ const ServicesSection = () => {
     {
       icon: Code,
       title: "SMS API Integration",
-      description: "Seamlessly integrate SMS capabilities with our robust RESTful APIs and comprehensive documentation.",
+      description: "Developer-friendly APIs with system integration capabilities, real-time message tracking, and automated communication workflows.",
       features: [
-        "RESTful API architecture",
-        "Multiple programming languages",
-        "Webhook notifications",
-        "24/7 developer support"
+        "RESTful API interface",
+        "Easy integration process",
+        "Scalable messaging infrastructure",
+        "Secure communication protocols"
       ],
       gradient: "gradient-cyber"
     },
     {
       icon: Globe,
-      title: "Omnichannel Platform",
-      description: "Connect across SMS, WhatsApp, Voice, and Email from one unified communication platform.",
+      title: "Voice SMS",
+      description: "Audio message delivery with voice-based notifications, multi-language support, and interactive voice response integration.",
       features: [
-        "Multi-channel messaging",
-        "Unified conversation view",
-        "Smart routing",
-        "Cross-channel analytics"
+        "Audio message delivery",
+        "Voice-based notifications",
+        "Multi-language support",
+        "IVR integration"
       ],
       gradient: "gradient-hologram"
     }

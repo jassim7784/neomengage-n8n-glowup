@@ -23,13 +23,19 @@ const Header = () => {
               </a>
             </div>
             <div className="relative group">
-              <a href="#products" className="text-foreground hover:text-primary transition-smooth relative group">
-                Products & Solutions
+              <a href="#solutions" className="text-foreground hover:text-primary transition-smooth relative group">
+                Solutions
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             </div>
-            <a href="/blogs" className="text-foreground hover:text-primary transition-smooth relative group">
-              Blogs
+            <div className="relative group">
+              <a href="#resources" className="text-foreground hover:text-primary transition-smooth relative group">
+                Resources
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </div>
+            <a href="#pricing" className="text-foreground hover:text-primary transition-smooth relative group">
+              Pricing
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a href="/contact" className="text-foreground hover:text-primary transition-smooth relative group">
@@ -61,11 +67,14 @@ const Header = () => {
             <a href="#services" className="block text-foreground hover:text-primary transition-smooth">
               Services
             </a>
-            <a href="#products" className="block text-foreground hover:text-primary transition-smooth">
-              Products & Solutions
+            <a href="#solutions" className="block text-foreground hover:text-primary transition-smooth">
+              Solutions
             </a>
-            <a href="/blogs" className="block text-foreground hover:text-primary transition-smooth">
-              Blogs
+            <a href="#resources" className="block text-foreground hover:text-primary transition-smooth">
+              Resources
+            </a>
+            <a href="#pricing" className="block text-foreground hover:text-primary transition-smooth">
+              Pricing
             </a>
             <a href="/contact" className="block text-foreground hover:text-primary transition-smooth">
               Contact
