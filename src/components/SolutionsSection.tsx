@@ -62,10 +62,6 @@ const SolutionsSection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
-            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Tailored Solutions</span>
-          </div>
-          
           <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
             <span className="text-glow">Solutions Built</span>
             <br />
@@ -91,8 +87,8 @@ const SolutionsSection = () => {
                   <solution.icon className="w-8 h-8 text-white" />
                 </div>
                 
-                <div className="glass px-4 py-2 rounded-full inline-block mb-4">
-                  <span className="text-xs font-semibold text-purple-400">{solution.target}</span>
+                <div className="mb-4">
+                  <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">{solution.target}</span>
                 </div>
                 
                 <h3 className="text-2xl font-bold mb-4 gradient-text">{solution.title}</h3>

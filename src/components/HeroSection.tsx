@@ -10,27 +10,17 @@ const HeroSection = () => {
       {/* Animated Gradient Overlay */}
       <div className="absolute inset-0 animated-gradient opacity-15"></div>
       
-      {/* Floating Geometric Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 h-32 border border-purple-500/30 rounded-full floating-element"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-primary opacity-20 rounded-lg rotate-45 floating-element" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-cyan-400/40 rounded-full floating-element" style={{animationDelay: '4s'}}></div>
-        <div className="absolute bottom-20 right-1/3 w-20 h-20 bg-gradient-neon opacity-15 rounded-full floating-element" style={{animationDelay: '1s'}}></div>
-      </div>
       
       {/* Content */}
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Logo and Badge */}
+          {/* Logo */}
           <div className="flex items-center justify-center mb-8">
-            <div className="glass-strong px-6 py-3 rounded-full inline-flex items-center gap-3">
-              <img 
-                src="/lovable-uploads/0a68ecfa-c129-42a6-a0ac-fcad7fa2a1ed.png" 
-                alt="NeoMengage Logo" 
-                className="w-8 h-8"
-              />
-              <span className="text-sm font-semibold gradient-text-neon">Advanced Business Communication Solutions</span>
-            </div>
+            <img 
+              src="/lovable-uploads/0a68ecfa-c129-42a6-a0ac-fcad7fa2a1ed.png" 
+              alt="NeoMengage Logo" 
+              className="w-16 h-16"
+            />
           </div>
           
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
@@ -47,18 +37,18 @@ const HeroSection = () => {
           </p>
 
           {/* Stats Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-            <div className="glass-strong p-6 rounded-2xl hover-glow">
-              <div className="text-3xl font-bold gradient-text mb-2">99.9%</div>
-              <div className="text-sm text-muted-foreground">Uptime Guarantee</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl font-bold gradient-text mb-2">99.9%</div>
+              <div className="text-muted-foreground">Uptime Guarantee</div>
             </div>
-            <div className="glass-strong p-6 rounded-2xl hover-glow">
-              <div className="text-3xl font-bold gradient-text mb-2">100M+</div>
-              <div className="text-sm text-muted-foreground">Messages/Month</div>
+            <div className="text-center">
+              <div className="text-4xl font-bold gradient-text mb-2">100M+</div>
+              <div className="text-muted-foreground">Messages/Month</div>
             </div>
-            <div className="glass-strong p-6 rounded-2xl hover-glow">
-              <div className="text-3xl font-bold gradient-text mb-2">Global</div>
-              <div className="text-sm text-muted-foreground">Coverage</div>
+            <div className="text-center">
+              <div className="text-4xl font-bold gradient-text mb-2">Global</div>
+              <div className="text-muted-foreground">Coverage</div>
             </div>
           </div>
 

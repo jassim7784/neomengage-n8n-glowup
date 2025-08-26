@@ -69,10 +69,6 @@ const ServicesSection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
-            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Premium Services</span>
-          </div>
-          
           <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
             <span className="text-glow">Enterprise-Grade</span>
             <br />
