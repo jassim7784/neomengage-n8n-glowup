@@ -1,7 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import LogoWithBackground from "@/components/LogoWithBackground";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,34 +23,92 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="relative group">
-              <a href="#services" className="text-foreground hover:text-primary transition-smooth relative group">
-                Services
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-            <div className="relative group">
-              <a href="#solutions" className="text-foreground hover:text-primary transition-smooth relative group">
-                Solutions
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-            <div className="relative group">
-              <a href="#resources" className="text-foreground hover:text-primary transition-smooth relative group">
-                Resources
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-            <a href="#pricing" className="text-foreground hover:text-primary transition-smooth relative group">
-              Pricing
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/contact" className="text-foreground hover:text-primary transition-smooth relative group">
-              Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </div>
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="space-x-2">
+              <NavigationMenuItem>
+                <NavigationMenuLink href="/" className="text-foreground hover:text-primary transition-smooth px-4 py-2">
+                  Home
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-foreground hover:text-primary">
+                  Services
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background border border-border">
+                    <li>
+                      <NavigationMenuLink href="/services/a2p-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">A2P SMS Service</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/services/bulk-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Bulk SMS Marketing Enterprise</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/services/sms-api" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">SMS API Integration</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/services/cpaas" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">CPaaS/Omnichannel</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/services/web-design" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Web Design & Development</div>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-foreground hover:text-primary">
+                  Product & Solutions
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background border border-border">
+                    <li>
+                      <NavigationMenuLink href="/products/wholesale-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Wholesale SMS Service</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/products/smpp" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">SMPP Connectivity</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/products/web-portal" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">HTTPS SMS Web Portal</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/products/http-api" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">HTTP SMS API</div>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink href="/blogs" className="text-foreground hover:text-primary transition-smooth px-4 py-2">
+                  Blogs
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink href="/contact" className="text-foreground hover:text-primary transition-smooth px-4 py-2">
+                  Contact
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="ghost" className="hover-glow">Sign In</Button>
@@ -64,17 +130,44 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-4 glass-strong rounded-2xl p-6">
-            <a href="#services" className="block text-foreground hover:text-primary transition-smooth">
-              Services
+            <a href="/" className="block text-foreground hover:text-primary transition-smooth">
+              Home
             </a>
-            <a href="#solutions" className="block text-foreground hover:text-primary transition-smooth">
-              Solutions
-            </a>
-            <a href="#resources" className="block text-foreground hover:text-primary transition-smooth">
-              Resources
-            </a>
-            <a href="#pricing" className="block text-foreground hover:text-primary transition-smooth">
-              Pricing
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-muted-foreground">Services</div>
+              <a href="/services/a2p-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                A2P SMS Service
+              </a>
+              <a href="/services/bulk-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Bulk SMS Marketing Enterprise
+              </a>
+              <a href="/services/sms-api" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                SMS API Integration
+              </a>
+              <a href="/services/cpaas" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                CPaaS/Omnichannel
+              </a>
+              <a href="/services/web-design" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Web Design & Development
+              </a>
+            </div>
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-muted-foreground">Product & Solutions</div>
+              <a href="/products/wholesale-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Wholesale SMS Service
+              </a>
+              <a href="/products/smpp" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                SMPP Connectivity
+              </a>
+              <a href="/products/web-portal" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                HTTPS SMS Web Portal
+              </a>
+              <a href="/products/http-api" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                HTTP SMS API
+              </a>
+            </div>
+            <a href="/blogs" className="block text-foreground hover:text-primary transition-smooth">
+              Blogs
             </a>
             <a href="/contact" className="block text-foreground hover:text-primary transition-smooth">
               Contact
