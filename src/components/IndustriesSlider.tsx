@@ -40,16 +40,20 @@ const IndustriesSlider = () => {
         </div>
 
         <Carousel 
-          className="w-full max-w-5xl mx-auto"
+          className="w-full max-w-6xl mx-auto"
+          opts={{
+            align: "start",
+            loop: true,
+          }}
           plugins={[
             Autoplay({
               delay: 3500,
             }),
           ]}
         >
-          <CarouselContent>
+          <CarouselContent className="-ml-2 md:-ml-4">
             {industries.map((industry, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className="glass-strong p-8 rounded-3xl h-full hover-lift">
                   <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6">
                     <industry.icon className="w-8 h-8 text-primary" />
@@ -62,8 +66,8 @@ const IndustriesSlider = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-0" />
+          <CarouselNext className="right-0" />
         </Carousel>
       </div>
     </section>
