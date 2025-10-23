@@ -1,4 +1,5 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import LogoWithBackground from "./LogoWithBackground";
 
 const Footer = () => {
   return (
@@ -7,9 +8,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary"></div>
-              <span className="text-xl font-bold gradient-text">NeoMengage</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <LogoWithBackground className="w-10 h-10" alt="NeoMengage Logo" />
+              <span className="text-xl font-bold text-foreground">NeoMengage</span>
             </div>
             <p className="text-muted-foreground mb-6">
               The future of customer engagement is here. Build meaningful relationships with automated, personalized experiences.
