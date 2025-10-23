@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { ShoppingCart, DollarSign, Heart, Globe } from "lucide-react";
 
 const IndustriesSlider = () => {
@@ -38,7 +39,14 @@ const IndustriesSlider = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Industries Served</h2>
         </div>
 
-        <Carousel className="w-full max-w-5xl mx-auto">
+        <Carousel 
+          className="w-full max-w-5xl mx-auto"
+          plugins={[
+            Autoplay({
+              delay: 3500,
+            }),
+          ]}
+        >
           <CarouselContent>
             {industries.map((industry, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">

@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import serviceA2P from "@/assets/service-a2p-sms.jpg";
 import serviceBulk from "@/assets/service-bulk-sms.jpg";
 import serviceAPI from "@/assets/service-sms-api.jpg";
@@ -41,7 +42,14 @@ const ServicesSlider = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Our Services</h2>
         </div>
 
-        <Carousel className="w-full max-w-5xl mx-auto">
+        <Carousel 
+          className="w-full max-w-5xl mx-auto"
+          plugins={[
+            Autoplay({
+              delay: 4000,
+            }),
+          ]}
+        >
           <CarouselContent>
             {services.map((service, index) => (
               <CarouselItem key={index}>

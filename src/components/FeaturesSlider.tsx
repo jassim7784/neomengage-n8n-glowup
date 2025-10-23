@@ -5,6 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { Clock, BarChart3, Shield, Zap } from "lucide-react";
 
 const FeaturesSlider = () => {
@@ -38,7 +39,14 @@ const FeaturesSlider = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Our Features</h2>
         </div>
 
-        <Carousel className="w-full max-w-5xl mx-auto">
+        <Carousel 
+          className="w-full max-w-5xl mx-auto"
+          plugins={[
+            Autoplay({
+              delay: 3500,
+            }),
+          ]}
+        >
           <CarouselContent>
             {features.map((feature, index) => (
               <CarouselItem key={index} className="md:basis-1/2">

@@ -1,35 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-6">
+        <div className="glass-strong rounded-3xl p-12 md:p-16 text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Ready to Transform Your
-            <br />
-            Customer Engagement?
+            Empowering Your Business with Advanced Communication Solutions
           </h2>
-          
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of companies already using NeoMengage to create meaningful 
-            customer relationships and drive unprecedented growth.
+          <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+            Experience the future of business communication with our cutting-edge services. From bulk SMS to web development, we provide the tools you need to connect, engage, and grow.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" size="lg" className="text-lg px-8 py-4">
-              Start Free Trial
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              Schedule Demo
-            </Button>
-          </div>
-
-          <p className="text-sm text-muted-foreground mt-6">
-            No credit card required • 14-day free trial • Cancel anytime
-          </p>
+          <Button 
+            size="lg" 
+            onClick={() => navigate('/contact')}
+            className="hover-lift text-lg px-8"
+          >
+            Get Started
+          </Button>
         </div>
       </div>
     </section>
