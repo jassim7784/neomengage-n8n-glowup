@@ -88,13 +88,11 @@ const PricingSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
-            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Transparent Pricing</span>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Transparent Pricing</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Choose Your</span>
-            <br />
-            <span className="gradient-text">Perfect Plan</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-foreground">
+            Choose Your Perfect Plan
           </h2>
           
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
@@ -114,27 +112,24 @@ const PricingSection = () => {
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-primary px-6 py-2 rounded-full flex items-center gap-2">
-                    <Star className="w-4 h-4 text-white" />
-                    <span className="text-sm font-semibold text-white">Most Popular</span>
+                  <div className="bg-primary/20 border border-primary/30 px-6 py-2 rounded-full flex items-center gap-2">
+                    <Star className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">Most Popular</span>
                   </div>
                 </div>
               )}
               
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-${plan.gradient} opacity-5 rounded-3xl`}></div>
-              
               <div className="relative z-10">
-                <div className={`w-16 h-16 bg-${plan.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <plan.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <plan.icon className="w-8 h-8 text-primary" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-2 gradient-text">{plan.name}</h3>
+                <h3 className="text-2xl font-bold mb-2 text-foreground">{plan.name}</h3>
                 <p className="text-muted-foreground mb-6">{plan.description}</p>
                 
                 <div className="mb-8">
-                  <div className="text-4xl font-bold mb-2">
-                    <span className="gradient-text">{plan.price}</span>
+                  <div className="text-4xl font-bold mb-2 text-foreground">
+                    {plan.price}
                   </div>
                   <div className="text-muted-foreground">{plan.period}</div>
                 </div>
@@ -163,15 +158,15 @@ const PricingSection = () => {
         {/* Enterprise Features */}
         <div className="glass-strong p-12 rounded-3xl max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4 gradient-text">All Plans Include</h3>
+            <h3 className="text-3xl font-bold mb-4 text-foreground">All Plans Include</h3>
             <p className="text-muted-foreground">Enterprise-grade features across all pricing tiers</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {enterpriseFeatures.map((feature, index) => (
               <div key={index} className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-4 h-4 text-white" />
+                <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-4 h-4 text-primary" />
                 </div>
                 <span className="text-sm text-foreground">{feature}</span>
               </div>
@@ -182,7 +177,7 @@ const PricingSection = () => {
         {/* CTA Section */}
         <div className="text-center mt-20">
           <div className="glass-strong p-12 rounded-3xl max-w-4xl mx-auto">
-            <h3 className="text-4xl font-bold mb-6 gradient-text">Need a Custom Solution?</h3>
+            <h3 className="text-4xl font-bold mb-6 text-foreground">Need a Custom Solution?</h3>
             <p className="text-xl text-muted-foreground mb-8">
               Our enterprise team can create a tailored solution that meets your specific requirements.
             </p>

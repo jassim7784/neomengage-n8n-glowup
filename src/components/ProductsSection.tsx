@@ -54,13 +54,11 @@ const ProductsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
-            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Products & Solutions</span>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Products & Solutions</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Choose Your</span>
-            <br />
-            <span className="gradient-text">Perfect Solution</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-foreground">
+            Choose Your Perfect Solution
           </h2>
           
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -78,20 +76,20 @@ const ProductsSection = () => {
             >
               {/* Popular Badge */}
               {product.popular && (
-                <div className="absolute -top-2 -right-2 bg-gradient-primary px-4 py-2 rounded-full">
+                <div className="absolute -top-2 -right-2 bg-primary/20 px-4 py-2 rounded-full border border-primary/30">
                   <div className="flex items-center gap-2">
-                    <Star className="w-4 h-4 text-white fill-white" />
-                    <span className="text-sm font-semibold text-white">Popular</span>
+                    <Star className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">Popular</span>
                   </div>
                 </div>
               )}
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <product.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <product.icon className="w-8 h-8 text-primary" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 gradient-text">{product.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{product.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {product.description}
                 </p>
@@ -106,9 +104,9 @@ const ProductsSection = () => {
                 </div>
                 
                 <div className="border-t border-purple-500/20 pt-6">
-                  <div className="text-2xl font-bold gradient-text mb-4">{product.price}</div>
+                  <div className="text-2xl font-bold text-foreground mb-4">{product.price}</div>
                   <Button 
-                    variant={product.popular ? "hero" : "cyber"} 
+                    variant="default" 
                     className="w-full group-hover:scale-105 transition-transform duration-300"
                   >
                     Get Started
@@ -123,11 +121,11 @@ const ProductsSection = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <div className="glass-strong p-12 rounded-3xl max-w-3xl mx-auto hover-lift">
-            <h3 className="text-3xl font-bold mb-4 gradient-text">Need a Custom Solution?</h3>
+            <h3 className="text-3xl font-bold mb-4 text-foreground">Need a Custom Solution?</h3>
             <p className="text-lg text-muted-foreground mb-8">
               Contact our experts to discuss your specific requirements and get a tailored solution.
             </p>
-            <Button variant="hero" size="lg" className="hover-lift pulse-neon">
+            <Button variant="default" size="lg" className="hover-lift">
               Contact Sales Team
               <ArrowRight className="w-5 h-5" />
             </Button>

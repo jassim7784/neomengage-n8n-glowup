@@ -90,13 +90,11 @@ const ResourcesSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
-            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Knowledge Hub</span>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Knowledge Hub</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Developer</span>
-            <br />
-            <span className="gradient-text">Resources & Guides</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-foreground">
+            Developer Resources & Guides
           </h2>
           
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
@@ -111,15 +109,12 @@ const ResourcesSection = () => {
               key={index} 
               className="glass-strong p-8 rounded-3xl hover-lift group relative overflow-hidden"
             >
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-${resource.gradient} opacity-5 rounded-3xl`}></div>
-              
               <div className="relative z-10">
-                <div className={`w-16 h-16 bg-${resource.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <resource.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <resource.icon className="w-8 h-8 text-primary" />
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 gradient-text">{resource.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{resource.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {resource.description}
                 </p>
@@ -145,15 +140,15 @@ const ResourcesSection = () => {
         {/* Additional Resources Grid */}
         <div className="glass-strong p-12 rounded-3xl">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4 gradient-text">Additional Resources</h3>
+            <h3 className="text-3xl font-bold mb-4 text-foreground">Additional Resources</h3>
             <p className="text-muted-foreground">Expand your knowledge with these additional learning materials</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {additionalResources.map((resource, index) => (
               <div key={index} className="glass p-6 rounded-2xl hover-lift group cursor-pointer">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <resource.icon className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <resource.icon className="w-6 h-6 text-primary" />
                 </div>
                 
                 <div className="glass px-3 py-1 rounded-full inline-block mb-3">
@@ -170,7 +165,7 @@ const ResourcesSection = () => {
         {/* Developer Community CTA */}
         <div className="text-center mt-20">
           <div className="glass-strong p-12 rounded-3xl max-w-4xl mx-auto">
-            <h3 className="text-4xl font-bold mb-6 gradient-text">Join Our Developer Community</h3>
+            <h3 className="text-4xl font-bold mb-6 text-foreground">Join Our Developer Community</h3>
             <p className="text-xl text-muted-foreground mb-8">
               Connect with other developers, get support, and stay updated with the latest features.
             </p>

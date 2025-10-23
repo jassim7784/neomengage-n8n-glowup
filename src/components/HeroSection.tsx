@@ -42,12 +42,12 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <Button variant="hero" size="lg" className="text-xl px-12 py-6 hover-lift pulse-neon">
+            <Button variant="default" size="lg" className="text-xl px-12 py-6 hover-lift">
               <Zap className="w-6 h-6" />
               Start Free Trial
               <ArrowRight className="w-6 h-6" />
             </Button>
-            <Button variant="glass" size="lg" className="text-xl px-12 py-6 hover-lift">
+            <Button variant="outline" size="lg" className="text-xl px-12 py-6 hover-lift">
               <Play className="w-6 h-6" />
               Watch Demo
             </Button>
@@ -56,24 +56,24 @@ const HeroSection = () => {
           {/* Feature Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="glass p-8 rounded-3xl hover-lift group">
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-foreground">Lightning Fast</h3>
               <p className="text-muted-foreground">Deploy campaigns in seconds with our advanced automation engine</p>
             </div>
             
             <div className="glass p-8 rounded-3xl hover-lift group">
-              <div className="w-16 h-16 bg-gradient-neon rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <Shield className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-foreground">Enterprise Security</h3>
               <p className="text-muted-foreground">Bank-level encryption with SOC 2 compliance and GDPR ready</p>
             </div>
             
             <div className="glass p-8 rounded-3xl hover-lift group">
-              <div className="w-16 h-16 bg-gradient-cyber rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
-                <Globe className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <Globe className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-foreground">Global Reach</h3>
               <p className="text-muted-foreground">Connect with customers worldwide through our premium carrier network</p>
