@@ -18,10 +18,10 @@ const Header = () => {
     <header className="fixed top-0 w-full z-50 glass-strong border-b border-purple-500/20">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <LogoWithBackground className="hidden md:block w-[250px] h-[75px]" />
-            <LogoWithBackground className="md:hidden w-[180px] h-[45px]" />
-          </div>
+          <a href="/" className="flex items-center">
+            <LogoWithBackground className="hidden md:block w-[320px] h-[96px]" />
+            <LogoWithBackground className="md:hidden w-[220px] h-[66px]" />
+          </a>
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden md:flex">
