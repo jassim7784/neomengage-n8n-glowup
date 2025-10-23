@@ -26,13 +26,13 @@ const Header = () => {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="space-x-2">
               <NavigationMenuItem>
-                <NavigationMenuLink href="/" className="text-foreground hover:text-primary transition-smooth px-4 py-2">
+                <NavigationMenuLink href="/" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                   Home
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground hover:text-primary">
+                <NavigationMenuTrigger className="text-foreground hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -67,7 +67,7 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground hover:text-primary">
+                <NavigationMenuTrigger className="text-foreground hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
                   Product & Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -97,13 +97,13 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink href="/blogs" className="text-foreground hover:text-primary transition-smooth px-4 py-2">
+                <NavigationMenuLink href="/blogs" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                   Blogs
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink href="/contact" className="text-foreground hover:text-primary transition-smooth px-4 py-2">
+                <NavigationMenuLink href="/contact" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                   Contact
                 </NavigationMenuLink>
               </NavigationMenuItem>
