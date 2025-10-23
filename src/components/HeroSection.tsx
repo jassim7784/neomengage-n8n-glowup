@@ -3,14 +3,7 @@ import { ArrowRight, Play, Zap, Shield, Globe } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Cyber Grid Background */}
-      <div className="absolute inset-0 cyber-grid opacity-20"></div>
-      
-      {/* Animated Gradient Overlay */}
-      <div className="absolute inset-0 animated-gradient opacity-15"></div>
-      
-      
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">      
       {/* Content */}
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
@@ -23,31 +16,27 @@ const HeroSection = () => {
             />
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Enhance Business</span>
-            <br />
-            <span className="gradient-text">Communication</span>
-            <br />
-            <span className="text-cyan-400">With Innovation</span>
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight text-foreground">
+            Enhance Business Communication With Innovation
           </h1>
           
           <p className="text-2xl md:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive communication platform offering <span className="gradient-text-neon font-semibold">end-to-end messaging solutions</span> 
+            Comprehensive communication platform offering end-to-end messaging solutions 
             from bulk SMS to web development services, emphasizing reliability, security, and scalability.
           </p>
 
           {/* Stats Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">99.9%</div>
+              <div className="text-4xl font-bold text-foreground mb-2">99.9%</div>
               <div className="text-muted-foreground">Uptime Guarantee</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">100M+</div>
+              <div className="text-4xl font-bold text-foreground mb-2">100M+</div>
               <div className="text-muted-foreground">Messages/Month</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold gradient-text mb-2">Global</div>
+              <div className="text-4xl font-bold text-foreground mb-2">Global</div>
               <div className="text-muted-foreground">Coverage</div>
             </div>
           </div>
@@ -70,7 +59,7 @@ const HeroSection = () => {
               <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 gradient-text">Lightning Fast</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Lightning Fast</h3>
               <p className="text-muted-foreground">Deploy campaigns in seconds with our advanced automation engine</p>
             </div>
             
@@ -78,7 +67,7 @@ const HeroSection = () => {
               <div className="w-16 h-16 bg-gradient-neon rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 gradient-text">Enterprise Security</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Enterprise Security</h3>
               <p className="text-muted-foreground">Bank-level encryption with SOC 2 compliance and GDPR ready</p>
             </div>
             
@@ -86,7 +75,7 @@ const HeroSection = () => {
               <div className="w-16 h-16 bg-gradient-cyber rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
                 <Globe className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-4 gradient-text">Global Reach</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">Global Reach</h3>
               <p className="text-muted-foreground">Connect with customers worldwide through our premium carrier network</p>
             </div>
           </div>
@@ -95,22 +84,6 @@ const HeroSection = () => {
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-      
-      {/* Particle Effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-purple-400 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`
-            }}
-          />
-        ))}
-      </div>
     </section>
   );
 };
