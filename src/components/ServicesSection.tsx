@@ -62,17 +62,10 @@ const ServicesSection = () => {
 
   return (
     <section className="py-32 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 cyber-grid opacity-5"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl floating-element"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl floating-element" style={{animationDelay: '3s'}}></div>
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Enterprise-Grade</span>
-            <br />
-            <span className="gradient-text">Communication Solutions</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-foreground">
+            Enterprise-Grade Communication Solutions
           </h2>
         </div>
 
@@ -82,15 +75,12 @@ const ServicesSection = () => {
               key={index} 
               className="glass-strong p-10 rounded-3xl hover-lift group relative overflow-hidden"
             >
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-${service.gradient} opacity-5 rounded-3xl`}></div>
-              
               <div className="relative z-10">
-                <div className={`w-20 h-20 bg-${service.gradient} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-10 h-10 text-primary" />
                 </div>
                 
-                <h3 className="text-3xl font-bold mb-4 gradient-text">{service.title}</h3>
+                <h3 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h3>
                 <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                   {service.description}
                 </p>

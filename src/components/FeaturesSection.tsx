@@ -59,21 +59,14 @@ const FeaturesSection = () => {
 
   return (
     <section id="services" className="py-32 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 cyber-grid opacity-5"></div>
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <div className="glass-strong px-8 py-4 rounded-full inline-block mb-8">
-            <span className="text-sm font-semibold gradient-text-neon uppercase tracking-wider">Our Services</span>
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Our Services</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-glow">Power Your Business</span>
-            <br />
-            <span className="gradient-text">With Next-Gen Messaging</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-foreground">
+            Power Your Business With Next-Gen Messaging
           </h2>
           
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -97,7 +90,7 @@ const FeaturesSection = () => {
         {/* CTA Section */}
         <div className="text-center mt-20">
           <div className="glass-strong p-12 rounded-3xl max-w-4xl mx-auto hover-lift">
-            <h3 className="text-4xl font-bold mb-6 gradient-text">Ready to Transform Your Communication?</h3>
+            <h3 className="text-4xl font-bold mb-6 text-foreground">Ready to Transform Your Communication?</h3>
             <p className="text-xl text-muted-foreground mb-8">
               Join thousands of businesses already using our platform to engage customers worldwide.
             </p>
@@ -105,7 +98,7 @@ const FeaturesSection = () => {
               <button className="glass-strong px-10 py-4 rounded-2xl hover-glow transition-all duration-300 text-lg font-semibold">
                 Start Free Trial
               </button>
-              <button className="bg-gradient-primary px-10 py-4 rounded-2xl text-white hover-lift pulse-neon transition-all duration-300 text-lg font-semibold">
+              <button className="bg-primary px-10 py-4 rounded-2xl text-primary-foreground hover-lift transition-all duration-300 text-lg font-semibold">
                 Contact Sales
               </button>
             </div>
