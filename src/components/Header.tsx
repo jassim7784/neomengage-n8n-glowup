@@ -36,7 +36,7 @@ const Header = () => {
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 bg-background border border-border">
+                  <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
                     <li>
                       <NavigationMenuLink href="/services/a2p-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">A2P SMS Service</div>
@@ -71,7 +71,7 @@ const Header = () => {
                   Product & Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 bg-background border border-border">
+                  <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
                     <li>
                       <NavigationMenuLink href="/products/wholesale-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Wholesale SMS Service</div>
