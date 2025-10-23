@@ -7,14 +7,11 @@ interface LogoWithBackgroundProps {
 
 const LogoWithBackground = ({ className = "", alt = "NeoM Engage Logo" }: LogoWithBackgroundProps) => {
   return (
-    <div className="relative">
-      {/* Logo */}
-      <img 
-        src={logo}
-        alt={alt}
-        className={`relative z-10 ${className}`}
-      />
-    </div>
+    <img 
+      src={logo}
+      alt={alt}
+      className={`object-contain ${className}`}
+    />
   );
 };
 

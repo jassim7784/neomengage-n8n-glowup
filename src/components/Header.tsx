@@ -19,7 +19,8 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <LogoWithBackground className="h-12 w-auto" />
+            <LogoWithBackground className="hidden md:block w-[250px] h-[75px]" />
+            <LogoWithBackground className="md:hidden w-[180px] h-[45px]" />
           </div>
 
           {/* Desktop Navigation */}

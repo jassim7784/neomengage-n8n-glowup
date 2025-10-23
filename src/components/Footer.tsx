@@ -9,8 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <LogoWithBackground className="w-10 h-10" alt="NeoMengage Logo" />
-              <span className="text-xl font-bold text-foreground">Neom Engage</span>
+              <LogoWithBackground className="w-[150px] h-[50px]" alt="NeoMengage Logo" />
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Neom Engage offers advanced communication solutions, enhancing business connectivity through reliable SMS, voice, and omnichannel services.
