@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main className="pt-[70px] md:pt-[100px]">
         <CTASection />
         <ServicesSlider />
         <WhyUsSection />
