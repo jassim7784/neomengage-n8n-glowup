@@ -129,7 +129,6 @@ const Header = () => {
           </NavigationMenu>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="hover-glow">Sign In</Button>
             <Button variant="cyber" className="hover-lift">
               <Zap className="w-4 h-4" />
               Get Started
@@ -191,7 +190,6 @@ const Header = () => {
               Contact
             </a>
             <div className="flex flex-col space-y-3 pt-4 border-t border-purple-500/20">
-              <Button variant="ghost" className="hover-glow">Sign In</Button>
               <Button variant="cyber" className="hover-lift">
                 <Zap className="w-4 h-4" />
                 Get Started
