@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Zap, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LogoWithBackground from "@/components/LogoWithBackground";
 import {
   NavigationMenu,
@@ -13,14 +13,31 @@ import {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-strong border-b border-purple-500/20">
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <header className={`fixed top-0 w-full z-50 glass-strong border-b border-purple-500/20 transition-all duration-300 ${
+      isScrolled ? 'h-[70px] md:h-[70px]' : 'h-[70px] md:h-[100px]'
+    }`}>
+      <nav className={`container mx-auto px-6 h-full flex items-center transition-all duration-300 ${
+        isScrolled ? 'py-2' : 'py-3 md:py-4'
+      }`}>
+        <div className="flex items-center justify-between w-full">
           <a href="/" className="flex items-center">
-            <LogoWithBackground className="hidden md:block w-[400px] h-[120px]" />
-            <LogoWithBackground className="md:hidden w-[280px] h-[84px]" />
+            <LogoWithBackground 
+              className={`hidden md:block transition-all duration-300 ${
+                isScrolled ? 'w-[280px] h-[70px]' : 'w-[350px] h-[90px]'
+              }`} 
+            />
+            <LogoWithBackground className="md:hidden w-[200px] h-[50px]" />
           </a>
 
           {/* Desktop Navigation */}
