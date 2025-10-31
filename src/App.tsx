@@ -15,6 +15,7 @@ import WebDesignDevelopment from "./pages/services/WebDesignDevelopment";
 
 // Products Pages
 import SMSSolutions from "./pages/products/SMSSolutions";
+import WhatsAppSolutions from "./pages/products/WhatsAppSolutions";
 
 // Other Pages
 import Blogs from "./pages/Blogs";
@@ -40,6 +41,7 @@ const App = () => (
           
           {/* Products Routes */}
           <Route path="/products/sms-solutions" element={<SMSSolutions />} />
+          <Route path="/products/whatsapp-solutions" element={<WhatsAppSolutions />} />
           
           {/* Other Pages */}
           <Route path="/blogs" element={<Blogs />} />

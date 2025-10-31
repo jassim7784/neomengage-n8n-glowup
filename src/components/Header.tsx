@@ -96,7 +96,7 @@ const Header = () => {
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/whatsapp-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/products/whatsapp-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">WhatsApp Solution</div>
                       </NavigationMenuLink>
                     </li>
@@ -188,7 +188,7 @@ const Header = () => {
               <a href="/products/sms-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 SMS Solutions
               </a>
-              <a href="/products/whatsapp-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/whatsapp-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 WhatsApp Solution
               </a>
               <a href="/products/voice-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
