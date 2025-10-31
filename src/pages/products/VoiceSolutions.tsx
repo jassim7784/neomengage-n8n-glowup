@@ -72,7 +72,7 @@ const VoiceSolutions = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main className="min-h-screen pt-[70px] md:pt-[100px]">
         {/* Hero Section */}
         <section className="py-20 px-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container mx-auto max-w-6xl text-center">
