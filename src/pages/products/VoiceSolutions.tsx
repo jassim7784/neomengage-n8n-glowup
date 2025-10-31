@@ -89,8 +89,9 @@ const VoiceSolutions = () => {
         <section className="py-20 px-4 bg-background">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Our Services <span className="text-primary">We Take Care Of</span>
+              <p className="text-primary font-semibold mb-4 text-lg">Our Services</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                We Take Care Of
               </h2>
             </div>
 
