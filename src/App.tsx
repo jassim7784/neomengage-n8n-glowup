@@ -17,6 +17,7 @@ import WebDesignDevelopment from "./pages/services/WebDesignDevelopment";
 import SMSSolutions from "./pages/products/SMSSolutions";
 import WhatsAppSolutions from "./pages/products/WhatsAppSolutions";
 import VoiceSolutions from "./pages/products/VoiceSolutions";
+import EmailSolutions from "./pages/products/EmailSolutions";
 
 // Other Pages
 import Blogs from "./pages/Blogs";
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/products/sms-solutions" element={<SMSSolutions />} />
           <Route path="/products/whatsapp-solutions" element={<WhatsAppSolutions />} />
           <Route path="/products/voice-solutions" element={<VoiceSolutions />} />
+          <Route path="/products/email-solutions" element={<EmailSolutions />} />
           
           {/* Other Pages */}
           <Route path="/blogs" element={<Blogs />} />

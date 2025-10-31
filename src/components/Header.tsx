@@ -106,7 +106,7 @@ const Header = () => {
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/email-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/products/email-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Email Solution</div>
                       </NavigationMenuLink>
                     </li>
@@ -194,7 +194,7 @@ const Header = () => {
               <a href="/products/voice-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Voice Solution
               </a>
-              <a href="/products/email-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/email-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Email Solution
               </a>
               <a href="/products/chatbot-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
