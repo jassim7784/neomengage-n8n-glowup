@@ -58,13 +58,13 @@ const ServicesSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <p className="text-primary font-semibold mb-4 text-lg">OUR SERVICES</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Reach Your Customers with our{" "}
-            <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-              Cutting-Edge APIs
-            </span>
+            <div className="text-center mb-16">
+              <p className="text-primary font-semibold mb-4 text-lg">Our Services</p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Reach Your Customers with our{" "}
+                <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+                  Cutting-Edge APIs
+                </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Connect with your customers across all channels. Deliver personalized messages, run targeted campaigns, 

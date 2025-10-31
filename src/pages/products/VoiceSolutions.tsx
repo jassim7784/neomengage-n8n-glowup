@@ -90,7 +90,7 @@ const VoiceSolutions = () => {
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                OUR SERVICES - <span className="text-primary">we take care of</span>
+                Our Services <span className="text-primary">We Take Care Of</span>
               </h2>
             </div>
 

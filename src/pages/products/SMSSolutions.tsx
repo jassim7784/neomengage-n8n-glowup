@@ -97,7 +97,7 @@ const SMSSolutions = () => {
         <section className="py-20 bg-gradient-to-b from-muted/20 to-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <p className="text-primary font-semibold mb-4 text-lg">OUR SERVICES</p>
+              <p className="text-primary font-semibold mb-4 text-lg">Our Services</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Comprehensive SMS Solutions for Every Need
               </h2>
