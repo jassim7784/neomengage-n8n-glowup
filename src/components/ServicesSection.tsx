@@ -1,106 +1,109 @@
-import { 
-  MessageSquare, 
-  Smartphone, 
-  Code, 
-  Globe, 
-  ArrowRight,
-  CheckCircle
-} from "lucide-react";
+import { Send, Megaphone, Code2, Mic, Globe, MessageSquare, Mail, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ServicesSection = () => {
   const services = [
     {
+      title: "SMS Solutions",
+      description: "Reach your customers with reliable, fast, and secure SMS messaging. Perfect for OTP, alerts, and promotional campaigns.",
+      icon: Send,
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "WhatsApp Business API",
+      description: "Connect with customers on their preferred platform. Send rich media messages, notifications, and enable two-way conversations.",
       icon: MessageSquare,
-      title: "A2P SMS Service",
-      description: "Enterprise-grade Application-to-Person SMS with global carrier partnerships and premium routing for OTP delivery, transactional notifications, and real-time alerts.",
-      features: [
-        "High deliverability rates",
-        "Global reach capabilities",
-        "OTP & transactional SMS",
-        "Real-time delivery reports"
-      ],
-      gradient: "gradient-primary"
+      gradient: "from-green-500 to-emerald-500"
     },
     {
-      icon: Smartphone,
-      title: "Bulk SMS Marketing",
-      description: "Scale your marketing campaigns with mass messaging, marketing automation, and customer engagement tools for enterprise bulk SMS.",
-      features: [
-        "Mass messaging campaigns",
-        "Marketing automation",
-        "Customer engagement tools",
-        "Performance analytics"
-      ],
-      gradient: "gradient-neon"
+      title: "Voice Solutions",
+      description: "Deliver automated voice calls, OTP verification, and interactive voice response systems with crystal-clear quality.",
+      icon: Mic,
+      gradient: "from-purple-500 to-pink-500"
     },
     {
-      icon: Code,
-      title: "SMS API Integration",
-      description: "Developer-friendly APIs with system integration capabilities, real-time message tracking, and automated communication workflows.",
-      features: [
-        "RESTful API interface",
-        "Easy integration process",
-        "Scalable messaging infrastructure",
-        "Secure communication protocols"
-      ],
-      gradient: "gradient-cyber"
+      title: "Email Solutions",
+      description: "Professional email marketing and transactional email services with high deliverability and detailed analytics.",
+      icon: Mail,
+      gradient: "from-orange-500 to-red-500"
     },
     {
+      title: "Chatbot Solutions",
+      description: "AI-powered chatbots that handle customer queries 24/7, improve engagement, and reduce support costs.",
+      icon: Bot,
+      gradient: "from-indigo-500 to-blue-500"
+    },
+    {
+      title: "Rich Communication Services",
+      description: "Next-generation messaging with rich media, branded experiences, and interactive features for enhanced engagement.",
       icon: Globe,
-      title: "Voice SMS",
-      description: "Audio message delivery with voice-based notifications, multi-language support, and interactive voice response integration.",
-      features: [
-        "Audio message delivery",
-        "Voice-based notifications",
-        "Multi-language support",
-        "IVR integration"
-      ],
-      gradient: "gradient-hologram"
+      gradient: "from-teal-500 to-cyan-500"
+    },
+    {
+      title: "VoIP Solutions",
+      description: "Cost-effective voice communication with HD call quality, call routing, and advanced telephony features.",
+      icon: Megaphone,
+      gradient: "from-rose-500 to-pink-500"
+    },
+    {
+      title: "API Integration",
+      description: "Developer-friendly APIs with comprehensive documentation, SDKs, and 99.9% uptime for seamless integration.",
+      icon: Code2,
+      gradient: "from-amber-500 to-orange-500"
     }
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+      
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-foreground">
-            Enterprise-Grade Communication Solutions
+        <div className="text-center mb-16">
+          <p className="text-primary font-semibold mb-4 text-lg">OUR SERVICES</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Reach Your Customers with our{" "}
+            <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+              Cutting-Edge APIs
+            </span>
           </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Connect with your customers across all channels. Deliver personalized messages, run targeted campaigns, 
+            and gain valuable insights into customer behavior with our comprehensive suite of communication solutions.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="glass-strong p-10 rounded-3xl hover-lift group relative overflow-hidden"
+            <div
+              key={index}
+              className="group glass rounded-2xl p-6 hover-lift transition-all duration-300 border border-border/50 hover:border-primary/50"
             >
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-10 h-10 text-primary" />
-                </div>
-                
-                <h3 className="text-3xl font-bold mb-4 text-foreground">{service.title}</h3>
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <div className="space-y-4 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-4">
-                      <CheckCircle className="w-5 h-5 text-purple-400" />
-                      <span className="text-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <Button variant="cyber" className="w-full group-hover:bg-purple-500/30 transition-all duration-300">
-                  Learn More
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
+              <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <service.icon className="w-8 h-8 text-white" strokeWidth={2} />
               </div>
+              
+              <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                {service.title}
+              </h3>
+              
+              <p className="text-muted-foreground leading-relaxed text-sm mb-4">
+                {service.description}
+              </p>
+              
+              <Button 
+                variant="ghost" 
+                className="mt-2 text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
+              >
+                Learn More →
+              </Button>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-16">
+          <Button size="lg" className="px-8">
+            Explore All Services
+          </Button>
         </div>
       </div>
     </section>

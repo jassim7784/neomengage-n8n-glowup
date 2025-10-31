@@ -86,28 +86,43 @@ const Header = () => {
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-foreground hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
-                  Product & Solutions
+                  Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
                     <li>
-                      <NavigationMenuLink href="/products/wholesale-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Wholesale SMS Service</div>
+                      <NavigationMenuLink href="/products/sms-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">SMS Solutions</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/smpp" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">SMPP Connectivity</div>
+                      <NavigationMenuLink href="/products/whatsapp-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">WhatsApp Solution</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/web-portal" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">HTTPS SMS Web Portal</div>
+                      <NavigationMenuLink href="/products/voice-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Voice Solution</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/http-api" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">HTTP SMS API</div>
+                      <NavigationMenuLink href="/products/email-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Email Solution</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/products/chatbot-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Chatbot Solution</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/products/rcs-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Rich Communication Solution</div>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink href="/products/voip-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">VoIP Solution</div>
                       </NavigationMenuLink>
                     </li>
                   </ul>
@@ -169,18 +184,27 @@ const Header = () => {
               </a>
             </div>
             <div className="space-y-2">
-              <div className="text-sm font-semibold text-muted-foreground">Product & Solutions</div>
-              <a href="/products/wholesale-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
-                Wholesale SMS Service
+              <div className="text-sm font-semibold text-muted-foreground">Products</div>
+              <a href="/products/sms-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                SMS Solutions
               </a>
-              <a href="/products/smpp" className="block text-foreground hover:text-primary transition-smooth pl-4">
-                SMPP Connectivity
+              <a href="/products/whatsapp-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                WhatsApp Solution
               </a>
-              <a href="/products/web-portal" className="block text-foreground hover:text-primary transition-smooth pl-4">
-                HTTPS SMS Web Portal
+              <a href="/products/voice-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Voice Solution
               </a>
-              <a href="/products/http-api" className="block text-foreground hover:text-primary transition-smooth pl-4">
-                HTTP SMS API
+              <a href="/products/email-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Email Solution
+              </a>
+              <a href="/products/chatbot-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Chatbot Solution
+              </a>
+              <a href="/products/rcs-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                Rich Communication Solution
+              </a>
+              <a href="/products/voip-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+                VoIP Solution
               </a>
             </div>
             <a href="/blogs" className="block text-foreground hover:text-primary transition-smooth">

@@ -34,7 +34,7 @@ const CTASection = () => {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in font-light">
-            Connect with your customers seamlessly. Venera Connect empowers businesses with innovative communication solutions. Deliver the right message to the right audience at the right time. Build stronger relationships and drive business growth.
+            Connect with your customers seamlessly. Neom Engage empowers businesses with innovative communication solutions. Deliver the right message to the right audience at the right time. Build stronger relationships and drive business growth.
           </p>
 
           {/* CTA Buttons */}

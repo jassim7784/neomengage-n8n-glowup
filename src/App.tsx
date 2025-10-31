@@ -14,10 +14,7 @@ import CPaaSOMnichannel from "./pages/services/CPaaSOMnichannel";
 import WebDesignDevelopment from "./pages/services/WebDesignDevelopment";
 
 // Products Pages
-import WholesaleSMSService from "./pages/products/WholesaleSMSService";
-import SMPPConnectivity from "./pages/products/SMPPConnectivity";
-import HTTPSMSWebPortal from "./pages/products/HTTPSMSWebPortal";
-import HTTPSMSAPI from "./pages/products/HTTPSMSAPI";
+import SMSSolutions from "./pages/products/SMSSolutions";
 
 // Other Pages
 import Blogs from "./pages/Blogs";
@@ -42,10 +39,7 @@ const App = () => (
           <Route path="/services/web-design-development" element={<WebDesignDevelopment />} />
           
           {/* Products Routes */}
-          <Route path="/products/wholesale-sms" element={<WholesaleSMSService />} />
-          <Route path="/products/smpp-connectivity" element={<SMPPConnectivity />} />
-          <Route path="/products/http-sms-portal" element={<HTTPSMSWebPortal />} />
-          <Route path="/products/http-sms-api" element={<HTTPSMSAPI />} />
+          <Route path="/products/sms-solutions" element={<SMSSolutions />} />
           
           {/* Other Pages */}
           <Route path="/blogs" element={<Blogs />} />

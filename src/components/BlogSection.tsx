@@ -14,7 +14,7 @@ const BlogSection = () => {
       description: "Explore the impact of AI-powered chatbots on customer engagement and satisfaction."
     },
     {
-      title: "Venera Connect: From SMS to a Suite of APIs – A 3-Year Evolution",
+      title: "Neom Engage: From SMS to a Suite of APIs – A 3-Year Evolution",
       date: "April 16, 2025",
       description: "Our journey from a simple SMS provider to a comprehensive communication platform."
     }

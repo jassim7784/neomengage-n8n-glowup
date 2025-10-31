@@ -6,10 +6,10 @@ const WhyUsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Why <span className="text-primary">Venera Connect</span>?
+            Why <span className="text-primary">Neom Engage</span>?
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Venera Connect is a leading provider of omnichannel communication solutions, helping businesses enhance their customer outreach and engagement. With a global reach and a strong focus on reliability and compliance, Venera Connect offers a variety of services including transactional SMS, user verification, promotional emails, missed call services, voice broadcasts, voting & polling, WhatsApp, Rich Communication Solution. Our trusted platform and experienced team empower businesses to deliver exceptional customer experiences and achieve measurable results.
+            Neom Engage is a leading provider of omnichannel communication solutions, helping businesses enhance their customer outreach and engagement. With a global reach and a strong focus on reliability and compliance, Neom Engage offers a variety of services including transactional SMS, user verification, promotional emails, missed call services, voice broadcasts, voting & polling, WhatsApp, Rich Communication Solution. Our trusted platform and experienced team empower businesses to deliver exceptional customer experiences and achieve measurable results.
           </p>
         </div>
 

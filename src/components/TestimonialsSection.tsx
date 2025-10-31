@@ -3,12 +3,12 @@ import { Quote } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Since implementing Venera Connect's solutions, we've seen a significant increase in customer engagement and a measurable return on our investment. The platform is easy to use and provides valuable insights into our customer interactions. We are thrilled with the results.",
+      quote: "Since implementing Neom Engage's solutions, we've seen a significant increase in customer engagement and a measurable return on our investment. The platform is easy to use and provides valuable insights into our customer interactions. We are thrilled with the results.",
       name: "Kritika Ahlawat",
       role: "Marketing Manager"
     },
     {
-      quote: "I was initially hesitant to switch to a new communication platform, but the Venera Connect team made the transition seamless. Their customer support was outstanding, and they were always available to answer our questions and provide guidance. We are now experiencing improved customer satisfaction and increased efficiency.",
+      quote: "I was initially hesitant to switch to a new communication platform, but the Neom Engage team made the transition seamless. Their customer support was outstanding, and they were always available to answer our questions and provide guidance. We are now experiencing improved customer satisfaction and increased efficiency.",
       name: "Trisha Arora",
       role: "Senior Manager"
     }
