@@ -1,34 +1,29 @@
 const StatsSection = () => {
-  const stats = [
-    { number: "500K+", label: "Active Users" },
-    { number: "98%", label: "Uptime" },
-    { number: "150+", label: "Integrations" },
-    { number: "24/7", label: "Support" }
-  ];
-
   return (
-    <section className="py-20 relative">
+    <section className="py-20 relative bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            Trusted by Leading Brands
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Join thousands of companies that chose NeoMengage to transform their customer engagement
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                {stat.number}
-              </div>
-              <div className="text-muted-foreground font-medium">
-                {stat.label}
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="text-6xl md:text-7xl font-bold text-primary mb-4">
+              1K+
             </div>
-          ))}
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
+              We've successfully partnered with over 1,000+ businesses to deliver impactful communication solutions.
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6">
+            {[
+              "Omnichannel Communication",
+              "Personalized Engagement",
+              "Data-Driven Insights",
+              "Seamless Integrations"
+            ].map((feature, index) => (
+              <div key={index} className="flex items-center gap-3 p-4 glass rounded-lg border">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-lg font-medium text-foreground">{feature}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -17,29 +17,24 @@ const CTASection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           {/* Small badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium animate-fade-in">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Trusted by 1000+ businesses worldwide
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium animate-fade-in uppercase tracking-wider">
+            Connecting the Dots
           </div>
 
-          {/* Main headline - Apple style */}
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight animate-fade-in">
+          {/* Main headline */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in">
             <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-              Communication.
+              Unifying Communication
             </span>
             <br />
             <span className="bg-gradient-to-br from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-              Simplified.
+              Amplifying Engagement.
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in font-light">
-            Enterprise-grade messaging solutions that scale with your business. 
-            From SMS to omnichannel communication—all in one platform.
+            Connect with your customers seamlessly. Venera Connect empowers businesses with innovative communication solutions. Deliver the right message to the right audience at the right time. Build stronger relationships and drive business growth.
           </p>
 
           {/* CTA Buttons */}
@@ -53,22 +48,6 @@ const CTASection = () => {
               Get Started
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-12 animate-fade-in">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-foreground">99.9%</div>
-              <div className="text-sm text-muted-foreground mt-1">Uptime SLA</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-foreground">5B+</div>
-              <div className="text-sm text-muted-foreground mt-1">Messages/Year</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-foreground">180+</div>
-              <div className="text-sm text-muted-foreground mt-1">Countries</div>
-            </div>
           </div>
         </div>
       </div>

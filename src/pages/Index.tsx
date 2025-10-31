@@ -1,13 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ServicesSlider from "@/components/ServicesSlider";
-import WhyUsSection from "@/components/WhyUsSection";
-import IndustriesSlider from "@/components/IndustriesSlider";
-import FeaturesSlider from "@/components/FeaturesSlider";
-import ProductsList from "@/components/ProductsList";
 import CTASection from "@/components/CTASection";
+import StatsSection from "@/components/StatsSection";
+import ProcessSection from "@/components/ProcessSection";
+import WhyUsSection from "@/components/WhyUsSection";
+import ServicesSlider from "@/components/ServicesSlider";
+import TrustSection from "@/components/TrustSection";
+import ThreeStepSection from "@/components/ThreeStepSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import BlogSection from "@/components/BlogSection";
 import EnquireSection from "@/components/EnquireSection";
-import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   return (
@@ -15,13 +17,15 @@ const Index = () => {
       <Header />
       <main className="pt-[70px] md:pt-[100px]">
         <CTASection />
-        <ServicesSlider />
+        <StatsSection />
+        <ProcessSection />
         <WhyUsSection />
-        <IndustriesSlider />
-        <FeaturesSlider />
-        <ProductsList />
+        <ServicesSlider />
+        <TrustSection />
+        <ThreeStepSection />
+        <TestimonialsSection />
+        <BlogSection />
         <EnquireSection />
-        <FAQSection />
       </main>
       <Footer />
     </div>
