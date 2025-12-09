@@ -24,17 +24,17 @@ const CTASection = () => {
           {/* Main headline */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight animate-fade-in">
             <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-              Unifying Communication
+              Communicate Smarter.
             </span>
             <br />
             <span className="bg-gradient-to-br from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-              Amplifying Engagement.
+              Engage Deeper.
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in font-light">
-            Connect with your customers seamlessly. Neom Engage empowers businesses with innovative communication solutions. Deliver the right message to the right audience at the right time. Build stronger relationships and drive business growth.
+            Turn every interaction into impact. Neom Engage equips your business with intelligent communication tools that deliver the right message, to the right audience, at the right moment—driving stronger relationships and unstoppable growth.
           </p>
 
           {/* CTA Buttons */}

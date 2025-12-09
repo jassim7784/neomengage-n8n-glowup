@@ -9,7 +9,7 @@ const WhyUsSection = () => {
             Why <span className="text-primary">Neom Engage</span>?
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Neom Engage is a leading provider of omnichannel communication solutions, helping businesses enhance their customer outreach and engagement. With a global reach and a strong focus on reliability and compliance, Neom Engage offers a variety of services including transactional SMS, user verification, promotional emails, missed call services, voice broadcasts, voting & polling, WhatsApp, Rich Communication Solution. Our trusted platform and experienced team empower businesses to deliver exceptional customer experiences and achieve measurable results.
+            Neom Engage is your gateway to smarter, stronger customer communication. We deliver a powerful omnichannel platform built for scale, reliability, and global reach. From transactional SMS and secure user verification to promotional emails, missed call solutions, voice broadcasts, polling, WhatsApp, and RCS — we equip businesses with everything they need to engage customers effortlessly. Backed by robust compliance and an experienced team, Neom Engage helps brands create exceptional customer experiences and drive results that truly matter.
           </p>
         </div>
 
@@ -18,7 +18,7 @@ const WhyUsSection = () => {
             <CheckCircle className="w-12 h-12 text-primary mb-4" />
             <h3 className="text-2xl font-bold mb-4 text-foreground">One Connection. Infinite Possibilities.</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Connect with your customers through multiple channels from a single platform. Scale your communication effortlessly as your business grows.
+              Reach your customers across every channel from one powerful platform — and scale your communication as fast as your business grows.
             </p>
           </div>
           
@@ -26,9 +26,9 @@ const WhyUsSection = () => {
             <div className="flex items-center gap-4 mb-4">
               <div className="text-5xl font-bold text-primary">7.8X</div>
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-foreground">Economical Growth</h3>
+            <h3 className="text-2xl font-bold mb-4 text-foreground">Smarter Growth</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Achieve exceptional ROI with our cost-effective communication solutions. Maximize your marketing impact while minimizing expenses.
+              Unlock outstanding ROI with our cost-efficient communication suite. Amplify your marketing impact while keeping costs dramatically lower.
             </p>
           </div>
         </div>
