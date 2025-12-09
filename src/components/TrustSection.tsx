@@ -6,19 +6,22 @@ const TrustSection = () => {
       number: "01",
       icon: FileText,
       title: "Information Collection",
-      description: "Understand Your Needs. We start by understanding your unique business challenges and communication goals. Our team works closely with you to define your target audience and tailor our solutions to your specific needs."
+      subtitle: "Discovering What Matters.",
+      description: "We begin by gaining a deep understanding of your business challenges and communication objectives. Our team collaborates with you to define your audience and craft solutions precisely aligned with your needs."
     },
     {
       number: "02",
       icon: BarChart3,
       title: "Projection Report Analysis",
-      description: "Data-Driven Insights. We analyze your communication data to identify areas for improvement and provide actionable insights to optimize your campaigns."
+      subtitle: "Insight-Powered Optimization.",
+      description: "We evaluate your communication data to uncover performance gaps and opportunities. Our analysis delivers actionable insights that enhance the effectiveness of your campaigns."
     },
     {
       number: "03",
       icon: Lightbulb,
       title: "Consultation Solution",
-      description: "Tailored Solutions. We provide customized communication strategies and solutions to help you achieve your business objectives."
+      subtitle: "Strategies Built Around You.",
+      description: "We design tailored communication strategies and solutions that directly support your business goals and accelerate measurable growth."
     }
   ];
 
@@ -38,7 +41,8 @@ const TrustSection = () => {
               <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-6">
                 <step.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-foreground">{step.title}</h3>
+              <h3 className="text-xl font-bold mb-2 text-foreground">{step.title}</h3>
+              <p className="text-primary font-medium mb-4">{step.subtitle}</p>
               <p className="text-muted-foreground leading-relaxed">{step.description}</p>
             </div>
           ))}
