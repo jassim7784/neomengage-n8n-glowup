@@ -27,7 +27,7 @@ const TrustSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Driven by <span className="text-primary">Trust.</span> Fueled by <span className="text-primary">Technology.</span> Guided by <span className="text-primary">Transparency.</span>
+            <span className="text-primary">Trust</span> forms our foundation. <span className="text-primary">Technology</span> drives our progress. <span className="text-primary">Transparency</span> shapes our promise.
           </h2>
         </div>
 
