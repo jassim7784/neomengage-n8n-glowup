@@ -8,7 +8,7 @@ const StatsSection = () => {
               1K+
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
-              We've successfully partnered with over 1,000+ businesses to deliver impactful communication solutions.
+              More than 1,000 businesses rely on us to deliver communication that creates measurable impact.
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-6">
