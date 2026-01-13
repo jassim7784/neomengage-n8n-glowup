@@ -1,31 +1,81 @@
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, MessageSquare, BarChart, Shield, Sparkles, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle, MessageSquare, BarChart, Shield, Sparkles, ArrowRight, Zap, Globe, Building2, Heart, ShoppingCart, Store } from "lucide-react";
 import { useScrollAnimation, useCountUp } from "@/hooks/use-scroll-animation";
 import TiltCard from "@/components/ui/TiltCard";
 import GlowingCard from "@/components/ui/GlowingCard";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const A2PSMSService = () => {
+  const navigate = useNavigate();
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.2);
-  const { count: deliveryCount, startAnimation: startDelivery } = useCountUp(999, 1500);
   const { count: messagesCount, startAnimation: startMessages } = useCountUp(1, 1500);
+  const { count: clientsCount, startAnimation: startClients } = useCountUp(100, 1500);
+  const { count: reachCount, startAnimation: startReach } = useCountUp(200, 1500);
 
   useEffect(() => {
     if (statsVisible) {
-      startDelivery();
       startMessages();
+      startClients();
+      startReach();
     }
   }, [statsVisible]);
 
-  const features = [
-    "High delivery rates with premium routes",
-    "Real-time delivery reports",
-    "Two-way messaging capabilities",
-    "Enterprise-grade security",
-    "Global reach and coverage",
-    "24/7 technical support"
+  const whyChooseUs = [
+    {
+      icon: Zap,
+      title: "High Delivery Rates",
+      description: "Our advanced infrastructure ensures your messages are delivered swiftly and reliably, maximizing your reach.",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: BarChart,
+      title: "Scalable Solutions",
+      description: "Whether you're a small business or a large enterprise, our A2P SMS service scales to meet your needs.",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: Globe,
+      title: "Global Reach",
+      description: "Connect with customers worldwide with our extensive network and international SMS capabilities.",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: BarChart,
+      title: "Real-Time Analytics",
+      description: "Gain insights into your campaigns with detailed delivery reports and analytics.",
+      gradient: "from-orange-500 to-red-500"
+    }
+  ];
+
+  const industries = [
+    {
+      icon: Building2,
+      title: "Banking and Finance",
+      description: "Ensure secure and timely communication with transactional alerts, OTPs, and account notifications.",
+      gradient: "from-indigo-500 to-blue-500"
+    },
+    {
+      icon: Heart,
+      title: "Healthcare",
+      description: "Remind patients about appointments, send health tips, and manage follow-ups efficiently.",
+      gradient: "from-pink-500 to-rose-500"
+    },
+    {
+      icon: ShoppingCart,
+      title: "E-Commerce",
+      description: "Send order confirmations, shipping updates, and promotional offers directly to your customers' phones.",
+      gradient: "from-amber-500 to-orange-500"
+    },
+    {
+      icon: Store,
+      title: "Retail",
+      description: "Drive sales with promotional messages, loyalty program updates, and personalized offers.",
+      gradient: "from-teal-500 to-cyan-500"
+    }
   ];
 
   return (
@@ -46,37 +96,79 @@ const A2PSMSService = () => {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Scalable, reliable SMS messaging to engage customers and drive growth. Connect with your audience through our premium A2P messaging platform.
+              Leverage the power of A2P SMS to engage your customers, enhance your brand presence, and drive business growth. Our reliable and scalable A2P SMS service ensures your messages are delivered promptly and effectively.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group">
+              <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group" onClick={() => navigate('/contact')}>
                 <MessageSquare className="w-5 h-5 mr-2" />
-                Start Free Trial
+                Get Started Today
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full">View Pricing</Button>
+              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full" onClick={() => navigate('/contact')}>View Pricing</Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Why Choose Us Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-glow">Why Choose Our A2P SMS Service?</h2>
-            <div className="grid gap-4">
-              {features.map((feature, index) => (
-                <GlowingCard key={index}>
-                  <div className="flex items-center space-x-4 glass-premium p-5 rounded-xl border border-primary/10 hover:border-primary/30 transition-all group">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <CheckCircle className="w-5 h-5 text-white" />
-                    </div>
-                    <span className="text-lg font-medium group-hover:text-primary transition-colors">{feature}</span>
-                  </div>
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold mb-4 text-lg">Why Choose Us</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-glow">
+              Why Choose Our A2P SMS Service?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <TiltCard key={index}>
+                <GlowingCard>
+                  <Card className="h-full glass-premium border-primary/10 hover:border-primary/30 transition-all group">
+                    <CardHeader className="text-center">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <item.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed text-center">{item.description}</CardDescription>
+                    </CardContent>
+                  </Card>
                 </GlowingCard>
-              ))}
-            </div>
+              </TiltCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-purple-500/5 to-pink-500/5" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold mb-4 text-lg">Industries We Serve</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-glow">
+              Trusted Across Industries
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {industries.map((industry, index) => (
+              <TiltCard key={index}>
+                <GlowingCard>
+                  <Card className="h-full glass-premium border-primary/10 hover:border-primary/30 transition-all group">
+                    <CardHeader className="text-center">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <industry.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{industry.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed text-center">{industry.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </GlowingCard>
+              </TiltCard>
+            ))}
           </div>
         </div>
       </section>
@@ -85,11 +177,12 @@ const A2PSMSService = () => {
       <section ref={statsRef} className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { icon: BarChart, value: `${(deliveryCount / 10).toFixed(1)}%`, label: "Delivery Rate" },
-              { icon: MessageSquare, value: `${messagesCount}B+`, label: "Messages Delivered" },
-              { icon: Shield, value: "24/7", label: "Support Available" }
+              { icon: MessageSquare, value: `${messagesCount}M+`, label: "Messages Sent" },
+              { icon: Building2, value: `${clientsCount}+`, label: "Clients Served" },
+              { icon: Globe, value: `${reachCount}+`, label: "Global Reach" },
+              { icon: Shield, value: "99.9%", label: "Uptime" }
             ].map((stat, index) => (
               <TiltCard key={index}>
                 <div className={`text-center glass-premium p-10 rounded-2xl border border-primary/10 transition-all duration-500 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 150}ms` }}>
@@ -113,7 +206,7 @@ const A2PSMSService = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Join thousands of businesses using our A2P SMS service to engage customers effectively.
             </p>
-            <Button size="lg" className="px-10 py-6 rounded-full hover:shadow-neon transition-all">
+            <Button size="lg" className="px-10 py-6 rounded-full hover:shadow-neon transition-all" onClick={() => navigate('/contact')}>
               Contact Sales Team
             </Button>
           </div>

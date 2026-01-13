@@ -61,22 +61,22 @@ const Header = () => {
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/services/bulk-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/services/bulk-sms-marketing" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Bulk SMS Marketing Enterprise</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/services/sms-api" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/services/sms-api-integration" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">SMS API Integration</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/services/cpaas" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/services/cpaas-omnichannel" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">CPaaS/Omnichannel</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/services/web-design" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/services/web-design-development" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Web Design & Development</div>
                       </NavigationMenuLink>
                     </li>
@@ -111,17 +111,17 @@ const Header = () => {
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/chatbot-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/products/chatbot-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Chatbot Solution</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/rcs-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/products/rcs-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">Rich Communication Solution</div>
                       </NavigationMenuLink>
                     </li>
                     <li>
-                      <NavigationMenuLink href="/products/voip-solution" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                      <NavigationMenuLink href="/products/voip-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="text-sm font-medium leading-none">VoIP Solution</div>
                       </NavigationMenuLink>
                     </li>
@@ -170,16 +170,16 @@ const Header = () => {
               <a href="/services/a2p-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 A2P SMS Service
               </a>
-              <a href="/services/bulk-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/bulk-sms-marketing" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Bulk SMS Marketing Enterprise
               </a>
-              <a href="/services/sms-api" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/sms-api-integration" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 SMS API Integration
               </a>
-              <a href="/services/cpaas" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/cpaas-omnichannel" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 CPaaS/Omnichannel
               </a>
-              <a href="/services/web-design" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/web-design-development" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Web Design & Development
               </a>
             </div>
@@ -197,13 +197,13 @@ const Header = () => {
               <a href="/products/email-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Email Solution
               </a>
-              <a href="/products/chatbot-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/chatbot-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Chatbot Solution
               </a>
-              <a href="/products/rcs-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/rcs-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 Rich Communication Solution
               </a>
-              <a href="/products/voip-solution" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/voip-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
                 VoIP Solution
               </a>
             </div>
