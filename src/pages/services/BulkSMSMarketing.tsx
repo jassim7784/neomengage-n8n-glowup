@@ -1,12 +1,15 @@
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Target, TrendingUp, Users, Sparkles, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Target, TrendingUp, Users, Sparkles, ArrowRight, Zap, DollarSign, BarChart, Building2, Heart, ShoppingCart, Calendar } from "lucide-react";
 import { useScrollAnimation, useCountUp } from "@/hooks/use-scroll-animation";
 import TiltCard from "@/components/ui/TiltCard";
 import GlowingCard from "@/components/ui/GlowingCard";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BulkSMSMarketing = () => {
+  const navigate = useNavigate();
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.2);
   const { count: roiCount, startAnimation: startRoi } = useCountUp(300, 1500);
@@ -16,7 +19,59 @@ const BulkSMSMarketing = () => {
     if (statsVisible) { startRoi(); startOpen(); }
   }, [statsVisible]);
 
-  const features = ["Advanced campaign management", "Real-time analytics and reporting", "Automated scheduling and triggers", "Contact list segmentation", "A/B testing capabilities", "Compliance management tools"];
+  const whyChooseUs = [
+    {
+      icon: Zap,
+      title: "High Delivery Rates",
+      description: "Ensure your messages reach their destination with our robust and reliable delivery infrastructure.",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: TrendingUp,
+      title: "Scalable Solutions",
+      description: "Handle campaigns of any size, from small local promotions to nationwide outreach, effortlessly.",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: DollarSign,
+      title: "Cost-Effective",
+      description: "Achieve high ROI with our competitively priced bulk SMS packages designed to fit your budget.",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: BarChart,
+      title: "Real-Time Analytics",
+      description: "Monitor your campaign performance with detailed analytics and insights to optimize your strategy.",
+      gradient: "from-orange-500 to-red-500"
+    }
+  ];
+
+  const industries = [
+    {
+      icon: Building2,
+      title: "Finance",
+      description: "Communicate important updates, fraud alerts, and account notifications securely to clients.",
+      gradient: "from-indigo-500 to-blue-500"
+    },
+    {
+      icon: Heart,
+      title: "Healthcare",
+      description: "Send appointment reminders, health tips, and vaccination alerts to patients efficiently.",
+      gradient: "from-pink-500 to-rose-500"
+    },
+    {
+      icon: ShoppingCart,
+      title: "Retail",
+      description: "Drive foot traffic and online sales with promotional offers, discount codes, and sale alerts.",
+      gradient: "from-amber-500 to-orange-500"
+    },
+    {
+      icon: Calendar,
+      title: "Events",
+      description: "Promote events, send invitations, and provide real-time updates to attendees.",
+      gradient: "from-teal-500 to-cyan-500"
+    }
+  ];
 
   return (
     <PageLayout>
@@ -29,33 +84,83 @@ const BulkSMSMarketing = () => {
               <Sparkles className="w-4 h-4" />Enterprise Marketing
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">Bulk SMS Marketing Enterprise</span>
+              <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+                Amplify Your Reach with Bulk SMS Marketing Enterprise
+              </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">Powerful SMS campaign solution with high delivery rates, real-time analytics, scalable infrastructure, and cost-effective pricing.</p>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Supercharge your marketing campaigns with our Bulk SMS Marketing Enterprise solution. Reach thousands of customers instantly, deliver targeted messages, and boost your business growth with ease.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group"><Target className="w-5 h-5 mr-2" />Launch Campaign<ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" /></Button>
-              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full">View Demo</Button>
+              <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group" onClick={() => navigate('/contact')}>
+                <Target className="w-5 h-5 mr-2" />Start Your Campaign Today
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full" onClick={() => navigate('/contact')}>View Demo</Button>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-glow">Enterprise Marketing Features</h2>
-            <div className="grid gap-4">
-              {features.map((feature, index) => (
-                <GlowingCard key={index}>
-                  <div className="flex items-center space-x-4 glass-premium p-5 rounded-xl border border-primary/10 hover:border-primary/30 transition-all group">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <CheckCircle className="w-5 h-5 text-white" />
-                    </div>
-                    <span className="text-lg font-medium group-hover:text-primary transition-colors">{feature}</span>
-                  </div>
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold mb-4 text-lg">Why Choose Us</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-glow">
+              Why Choose Our Bulk SMS Service?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <TiltCard key={index}>
+                <GlowingCard>
+                  <Card className="h-full glass-premium border-primary/10 hover:border-primary/30 transition-all group">
+                    <CardHeader className="text-center">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <item.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed text-center">{item.description}</CardDescription>
+                    </CardContent>
+                  </Card>
                 </GlowingCard>
-              ))}
-            </div>
+              </TiltCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-purple-500/5 to-pink-500/5" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold mb-4 text-lg">Industries We Serve</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-glow">
+              Trusted Across Industries
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {industries.map((industry, index) => (
+              <TiltCard key={index}>
+                <GlowingCard>
+                  <Card className="h-full glass-premium border-primary/10 hover:border-primary/30 transition-all group">
+                    <CardHeader className="text-center">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <industry.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{industry.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed text-center">{industry.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </GlowingCard>
+              </TiltCard>
+            ))}
           </div>
         </div>
       </section>
@@ -82,7 +187,7 @@ const BulkSMSMarketing = () => {
           <div className="glass-premium rounded-3xl p-12 max-w-3xl mx-auto border border-primary/20">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Scale Your Marketing Efforts</h2>
             <p className="text-xl text-muted-foreground mb-8">Transform your customer engagement with our enterprise-grade bulk SMS marketing platform.</p>
-            <Button size="lg" className="px-10 py-6 rounded-full hover:shadow-neon transition-all">Request Enterprise Demo</Button>
+            <Button size="lg" className="px-10 py-6 rounded-full hover:shadow-neon transition-all" onClick={() => navigate('/contact')}>Request Enterprise Demo</Button>
           </div>
         </div>
       </section>

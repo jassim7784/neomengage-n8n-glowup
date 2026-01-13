@@ -1,11 +1,14 @@
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, MessageCircle, Phone, Mail, MessageSquare, Sparkles, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { MessageCircle, Phone, Mail, MessageSquare, Sparkles, ArrowRight, Layers, TrendingUp, BarChart, Users, Building2, Heart, ShoppingCart, Store } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import TiltCard from "@/components/ui/TiltCard";
 import GlowingCard from "@/components/ui/GlowingCard";
+import { useNavigate } from "react-router-dom";
 
 const CPaaSOMnichannel = () => {
+  const navigate = useNavigate();
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.2);
 
@@ -16,7 +19,59 @@ const CPaaSOMnichannel = () => {
     { icon: MessageCircle, name: "Chat", description: "Live chat support", gradient: "from-green-500 to-emerald-500" }
   ];
 
-  const features = ["Unified communication platform", "Multi-channel customer journeys", "Real-time interaction analytics", "Automated workflow triggers", "Seamless channel switching", "Advanced personalization"];
+  const whyChooseUs = [
+    {
+      icon: Layers,
+      title: "Unified Communication",
+      description: "Integrate all your communication channels into a single platform for a seamless customer experience.",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: TrendingUp,
+      title: "Scalable Solutions",
+      description: "Our CPaaS/Omnichannel solutions scale to meet the needs of businesses of all sizes, from startups to enterprises.",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: BarChart,
+      title: "Real-Time Analytics",
+      description: "Gain insights into your communication performance with detailed analytics and reporting tools.",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: Users,
+      title: "Enhanced Engagement",
+      description: "Improve customer satisfaction with personalized and timely interactions across multiple channels.",
+      gradient: "from-orange-500 to-red-500"
+    }
+  ];
+
+  const industries = [
+    {
+      icon: Building2,
+      title: "Banking and Finance",
+      description: "Secure multi-channel communications for transactions, alerts, and customer support.",
+      gradient: "from-indigo-500 to-blue-500"
+    },
+    {
+      icon: Heart,
+      title: "Healthcare",
+      description: "Patient engagement across SMS, voice, and email for appointments and care updates.",
+      gradient: "from-pink-500 to-rose-500"
+    },
+    {
+      icon: ShoppingCart,
+      title: "E-Commerce",
+      description: "Seamless customer journey from browsing to purchase across all channels.",
+      gradient: "from-amber-500 to-orange-500"
+    },
+    {
+      icon: Store,
+      title: "Retail",
+      description: "Unified customer experience combining in-store and digital communications.",
+      gradient: "from-teal-500 to-cyan-500"
+    }
+  ];
 
   return (
     <PageLayout>
@@ -29,12 +84,19 @@ const CPaaSOMnichannel = () => {
               <Sparkles className="w-4 h-4" />Unified Platform
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">CPaaS / Omnichannel</span>
+              <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+                Revolutionize Communication with CPaaS/Omnichannel Solutions
+              </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">Integrate voice, SMS, email, chat, and social media into a unified engagement platform. Create seamless customer experiences.</p>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Transform your customer engagement with our comprehensive CPaaS/Omnichannel solutions. Seamlessly integrate voice, SMS, email, chat, and social media into your communication strategy to enhance customer experience and drive business growth.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group"><MessageCircle className="w-5 h-5 mr-2" />Explore Platform<ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" /></Button>
-              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full">Schedule Demo</Button>
+              <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group" onClick={() => navigate('/contact')}>
+                <MessageCircle className="w-5 h-5 mr-2" />Explore Our Solutions
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full" onClick={() => navigate('/contact')}>Schedule Demo</Button>
             </div>
           </div>
         </div>
@@ -59,23 +121,65 @@ const CPaaSOMnichannel = () => {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-purple-500/5 to-pink-500/5" />
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-glow">Platform Features</h2>
-            <div className="grid gap-4">
-              {features.map((feature, index) => (
-                <GlowingCard key={index}>
-                  <div className="flex items-center space-x-4 glass-premium p-5 rounded-xl border border-primary/10 hover:border-primary/30 transition-all group">
-                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <CheckCircle className="w-5 h-5 text-white" />
-                    </div>
-                    <span className="text-lg font-medium group-hover:text-primary transition-colors">{feature}</span>
-                  </div>
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold mb-4 text-lg">Why Choose Us</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-glow">
+              Platform Features
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <TiltCard key={index}>
+                <GlowingCard>
+                  <Card className="h-full glass-premium border-primary/10 hover:border-primary/30 transition-all group">
+                    <CardHeader className="text-center">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <item.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed text-center">{item.description}</CardDescription>
+                    </CardContent>
+                  </Card>
                 </GlowingCard>
-              ))}
-            </div>
+              </TiltCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-primary font-semibold mb-4 text-lg">Industries We Serve</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-glow">
+              Trusted Across Industries
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {industries.map((industry, index) => (
+              <TiltCard key={index}>
+                <GlowingCard>
+                  <Card className="h-full glass-premium border-primary/10 hover:border-primary/30 transition-all group">
+                    <CardHeader className="text-center">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${industry.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <industry.icon className="w-8 h-8 text-white" strokeWidth={2} />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{industry.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed text-center">{industry.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </GlowingCard>
+              </TiltCard>
+            ))}
           </div>
         </div>
       </section>
@@ -101,7 +205,7 @@ const CPaaSOMnichannel = () => {
           <div className="glass-premium rounded-3xl p-12 max-w-3xl mx-auto border border-primary/20">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Transform Customer Engagement</h2>
             <p className="text-xl text-muted-foreground mb-8">Unify all your communication channels and create exceptional customer experiences.</p>
-            <Button size="lg" className="px-10 py-6 rounded-full hover:shadow-neon transition-all">Start Free Trial</Button>
+            <Button size="lg" className="px-10 py-6 rounded-full hover:shadow-neon transition-all" onClick={() => navigate('/contact')}>Start Free Trial</Button>
           </div>
         </div>
       </section>

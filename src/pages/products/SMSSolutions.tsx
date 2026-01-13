@@ -1,7 +1,7 @@
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Bell, Shield, Sparkles, Megaphone, Target, Info, Users, Send, Heart, ArrowRight } from "lucide-react";
+import { Bell, Shield, Sparkles, Megaphone, Target, Info, Users, Send, Heart, ArrowRight, Gamepad2, Gift } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import TiltCard from "@/components/ui/TiltCard";
@@ -12,15 +12,15 @@ const SMSSolutions = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   const services = [
-    { icon: Bell, title: "Transactional Alerts", description: "NeomEngage provides APIs and on-premise SMS solutions that allow enterprises to send alerts, such as account balance or transaction notifications, to their customers.", gradient: "from-blue-500 to-cyan-500" },
-    { icon: Shield, title: "User Verification (OTP)", description: "Secure one-time password delivery for user authentication and verification processes.", gradient: "from-purple-500 to-pink-500" },
-    { icon: Sparkles, title: "Engagement", description: "Engage your customers with SMS-based quizzes, contests, and gamification to make their experience interactive and fun.", gradient: "from-green-500 to-emerald-500" },
+    { icon: Bell, title: "Transactional Alerts", description: "Neom Engage provides APIs and on-premise SMS solutions that allow enterprises to send alerts, such as account balance or transaction notifications, to their customers.", gradient: "from-blue-500 to-cyan-500" },
+    { icon: Shield, title: "User Verification (OTP)", description: "Secure user authentication with one-time passwords sent via SMS for seamless verification.", gradient: "from-purple-500 to-pink-500" },
+    { icon: Gamepad2, title: "Engagement", description: "Engage your customers with SMS-based quizzes, contests, and gamification to make their experience interactive and fun.", gradient: "from-green-500 to-emerald-500" },
     { icon: Megaphone, title: "Promotional SMS", description: "Craft SMS campaigns tailored to individual user behavior by utilizing our powerful tools and solutions.", gradient: "from-orange-500 to-red-500" },
-    { icon: Target, title: "Segment/Retarget", description: "Target specific customer segments with personalized messaging campaigns.", gradient: "from-indigo-500 to-blue-500" },
-    { icon: Info, title: "Information on Demand", description: "Obtain information instantly by sending a simple SMS to a dedicated number for services like stock prices, account balance, and more.", gradient: "from-teal-500 to-cyan-500" },
-    { icon: Users, title: "Internal Team Communication", description: "Effectively communicate with your internal teams by utilizing SMS to send out service alerts and updates.", gradient: "from-rose-500 to-pink-500" },
-    { icon: Send, title: "Bulk SMS", description: "Send mass SMS messages to a large number of recipients simultaneously. Ideal for marketing campaigns and notifications.", gradient: "from-amber-500 to-orange-500" },
-    { icon: Heart, title: "Loyalty Programs", description: "Implement multi-level loyalty programs that extend beyond SMS and utilize multiple channels.", gradient: "from-violet-500 to-purple-500" }
+    { icon: Target, title: "Segment/Retarget", description: "Robust SMS analytics engine that enables businesses to segment their customer base and send targeted SMS broadcasts for better retargeting.", gradient: "from-indigo-500 to-blue-500" },
+    { icon: Info, title: "Information on Demand", description: "Obtain information instantly by sending a simple SMS to a dedicated number for a wide range of services.", gradient: "from-teal-500 to-cyan-500" },
+    { icon: Users, title: "Internal Team Communication", description: "Effectively communicate with your internal teams by utilizing SMS to send out service alerts.", gradient: "from-rose-500 to-pink-500" },
+    { icon: Send, title: "Bulk SMS", description: "Send mass SMS messages to a large number of recipients simultaneously. Ideal for marketing campaigns, alerts, and notifications.", gradient: "from-amber-500 to-orange-500" },
+    { icon: Gift, title: "Loyalty Programs", description: "Implement multi-level loyalty programs that extend beyond SMS and utilize multiple channels.", gradient: "from-violet-500 to-purple-500" }
   ];
 
   return (
@@ -56,7 +56,7 @@ const SMSSolutions = () => {
           <div className="text-center mb-16">
             <p className="text-primary font-semibold mb-4 text-lg">Our Services</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Comprehensive SMS Solutions for Every Need
+              We Take Care Of
             </h2>
           </div>
 

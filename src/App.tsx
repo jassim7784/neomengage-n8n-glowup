@@ -18,6 +18,9 @@ import SMSSolutions from "./pages/products/SMSSolutions";
 import WhatsAppSolutions from "./pages/products/WhatsAppSolutions";
 import VoiceSolutions from "./pages/products/VoiceSolutions";
 import EmailSolutions from "./pages/products/EmailSolutions";
+import ChatbotSolutions from "./pages/products/ChatbotSolutions";
+import RichCommunicationSolutions from "./pages/products/RichCommunicationSolutions";
+import VoIPSolutions from "./pages/products/VoIPSolutions";
 
 // Other Pages
 import Blogs from "./pages/Blogs";
@@ -46,6 +49,9 @@ const App = () => (
           <Route path="/products/whatsapp-solutions" element={<WhatsAppSolutions />} />
           <Route path="/products/voice-solutions" element={<VoiceSolutions />} />
           <Route path="/products/email-solutions" element={<EmailSolutions />} />
+          <Route path="/products/chatbot-solutions" element={<ChatbotSolutions />} />
+          <Route path="/products/rcs-solutions" element={<RichCommunicationSolutions />} />
+          <Route path="/products/voip-solutions" element={<VoIPSolutions />} />
           
           {/* Other Pages */}
           <Route path="/blogs" element={<Blogs />} />
