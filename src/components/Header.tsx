@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap, ChevronDown } from "lucide-react";
+import { 
+  Menu, X, Zap, ChevronDown,
+  MessageSquare, Send, Code, Layers, Globe,
+  MessagesSquare, MessageCircle, Phone, Mail, Bot, Sparkles, Headphones
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import LogoWithBackground from "@/components/LogoWithBackground";
 import {
@@ -57,27 +61,42 @@ const Header = () => {
                   <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
                     <li>
                       <NavigationMenuLink href="/services/a2p-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">A2P SMS Service</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <MessageSquare className="w-4 h-4 text-primary" />
+                          A2P SMS Service
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/services/bulk-sms-marketing" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Bulk SMS Marketing Enterprise</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Send className="w-4 h-4 text-primary" />
+                          Bulk SMS Marketing Enterprise
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/services/sms-api-integration" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">SMS API Integration</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Code className="w-4 h-4 text-primary" />
+                          SMS API Integration
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/services/cpaas-omnichannel" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">CPaaS/Omnichannel</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Layers className="w-4 h-4 text-primary" />
+                          CPaaS/Omnichannel
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/services/web-design-development" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Web Design & Development</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Globe className="w-4 h-4 text-primary" />
+                          Web Design & Development
+                        </div>
                       </NavigationMenuLink>
                     </li>
                   </ul>
@@ -92,37 +111,58 @@ const Header = () => {
                   <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
                     <li>
                       <NavigationMenuLink href="/products/sms-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">SMS Solutions</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <MessagesSquare className="w-4 h-4 text-primary" />
+                          SMS Solutions
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/products/whatsapp-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">WhatsApp Solution</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <MessageCircle className="w-4 h-4 text-primary" />
+                          WhatsApp Solution
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/products/voice-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Voice Solution</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Phone className="w-4 h-4 text-primary" />
+                          Voice Solution
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/products/email-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Email Solution</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Mail className="w-4 h-4 text-primary" />
+                          Email Solution
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/products/chatbot-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Chatbot Solution</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Bot className="w-4 h-4 text-primary" />
+                          Chatbot Solution
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/products/rcs-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Rich Communication Solution</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Sparkles className="w-4 h-4 text-primary" />
+                          Rich Communication Solution
+                        </div>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink href="/products/voip-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">VoIP Solution</div>
+                        <div className="flex items-center gap-3 text-sm font-medium leading-none">
+                          <Headphones className="w-4 h-4 text-primary" />
+                          VoIP Solution
+                        </div>
                       </NavigationMenuLink>
                     </li>
                   </ul>
@@ -167,43 +207,55 @@ const Header = () => {
             </a>
             <div className="space-y-2">
               <div className="text-sm font-semibold text-muted-foreground">Services</div>
-              <a href="/services/a2p-sms" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/a2p-sms" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <MessageSquare className="w-4 h-4 text-primary" />
                 A2P SMS Service
               </a>
-              <a href="/services/bulk-sms-marketing" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/bulk-sms-marketing" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Send className="w-4 h-4 text-primary" />
                 Bulk SMS Marketing Enterprise
               </a>
-              <a href="/services/sms-api-integration" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/sms-api-integration" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Code className="w-4 h-4 text-primary" />
                 SMS API Integration
               </a>
-              <a href="/services/cpaas-omnichannel" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/cpaas-omnichannel" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Layers className="w-4 h-4 text-primary" />
                 CPaaS/Omnichannel
               </a>
-              <a href="/services/web-design-development" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/services/web-design-development" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Globe className="w-4 h-4 text-primary" />
                 Web Design & Development
               </a>
             </div>
             <div className="space-y-2">
               <div className="text-sm font-semibold text-muted-foreground">Products</div>
-              <a href="/products/sms-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/sms-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <MessagesSquare className="w-4 h-4 text-primary" />
                 SMS Solutions
               </a>
-              <a href="/products/whatsapp-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/whatsapp-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <MessageCircle className="w-4 h-4 text-primary" />
                 WhatsApp Solution
               </a>
-              <a href="/products/voice-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/voice-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Phone className="w-4 h-4 text-primary" />
                 Voice Solution
               </a>
-              <a href="/products/email-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/email-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Mail className="w-4 h-4 text-primary" />
                 Email Solution
               </a>
-              <a href="/products/chatbot-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/chatbot-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Bot className="w-4 h-4 text-primary" />
                 Chatbot Solution
               </a>
-              <a href="/products/rcs-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/rcs-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Sparkles className="w-4 h-4 text-primary" />
                 Rich Communication Solution
               </a>
-              <a href="/products/voip-solutions" className="block text-foreground hover:text-primary transition-smooth pl-4">
+              <a href="/products/voip-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
+                <Headphones className="w-4 h-4 text-primary" />
                 VoIP Solution
               </a>
             </div>
