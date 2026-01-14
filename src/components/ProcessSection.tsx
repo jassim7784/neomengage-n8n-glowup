@@ -20,9 +20,9 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-16 md:py-20 lg:py-24 bg-muted/30">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, index) => (
             <div key={index} className="group">
               <div className="glass p-8 rounded-2xl border transition-smooth hover-lift h-full">
