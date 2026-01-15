@@ -52,8 +52,8 @@ const Header = () => {
             <LogoWithBackground className="md:hidden w-[260px] h-[65px]" />
           </a>
 
-          {/* Desktop Navigation - Centered */}
-          <NavigationMenu className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop Navigation - Centered with offset for logo */}
+          <NavigationMenu className="hidden md:flex absolute left-[calc(50%+80px)] transform -translate-x-1/2">
             <NavigationMenuList className="space-x-6">
               <NavigationMenuItem>
                 <NavigationMenuLink href="/" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
