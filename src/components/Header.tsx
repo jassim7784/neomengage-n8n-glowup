@@ -210,7 +210,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-background/98 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/20 shadow-2xl max-h-[80vh] overflow-y-auto">
+          <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-[hsl(12,8%,5%)] rounded-2xl p-6 border border-purple-500/20 shadow-2xl max-h-[80vh] overflow-y-auto z-50">
             <a href="/" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium">
               Home
             </a>
