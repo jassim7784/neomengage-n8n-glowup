@@ -8,7 +8,7 @@ import ServicesSection from "@/components/ServicesSection";
 import TrustSection from "@/components/TrustSection";
 import ThreeStepSection from "@/components/ThreeStepSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import BlogSection from "@/components/BlogSection";
+// import BlogSection from "@/components/BlogSection";
 import EnquireSection from "@/components/EnquireSection";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import BackToTop from "@/components/ui/BackToTop";
@@ -27,7 +27,7 @@ const Index = () => {
         <TrustSection />
         <ThreeStepSection />
         <TestimonialsSection />
-        <BlogSection />
+        {/* <BlogSection /> */}
         <EnquireSection />
       </main>
       <Footer />

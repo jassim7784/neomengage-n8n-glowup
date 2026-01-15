@@ -191,12 +191,6 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="cyber" className="hover-lift">
-              <Zap className="w-4 h-4" />
-              Get Started
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -300,12 +294,6 @@ const Header = () => {
               Contact
             </a>
             
-            <div className="pt-4 border-t border-purple-500/10">
-              <Button variant="cyber" className="hover-lift w-full" onClick={closeMenu}>
-                <Zap className="w-4 h-4" />
-                Get Started
-              </Button>
-            </div>
           </div>
         )}
       </nav>
