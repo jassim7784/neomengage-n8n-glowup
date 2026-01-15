@@ -18,6 +18,8 @@ import {
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +29,14 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    setIsProductsOpen(false);
+  };
+
   return (
-    <header className={`fixed top-0 w-full z-50 glass-strong border-b border-purple-500/20 transition-all duration-300 ${
+    <header className={`fixed top-0 w-full z-50 bg-background/95 backdrop-blur-xl border-b border-purple-500/20 rounded-b-3xl transition-all duration-300 ${
       isScrolled ? 'h-[70px] md:h-[70px]' : 'h-[70px] md:h-[100px]'
     }`}>
       <nav className={`container mx-auto px-6 h-full flex items-center transition-all duration-300 ${
@@ -58,11 +66,11 @@ const Header = () => {
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background/95 backdrop-blur-xl border border-purple-500/20 shadow-xl">
                     <li>
                       <NavigationMenuLink href="/services/a2p-sms" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <MessageSquare className="w-4 h-4 text-primary" />
+                          <MessageSquare className="w-4 h-4 text-blue-400" />
                           A2P SMS Service
                         </div>
                       </NavigationMenuLink>
@@ -70,7 +78,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/services/bulk-sms-marketing" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Send className="w-4 h-4 text-primary" />
+                          <Send className="w-4 h-4 text-green-400" />
                           Bulk SMS Marketing Enterprise
                         </div>
                       </NavigationMenuLink>
@@ -78,7 +86,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/services/sms-api-integration" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Code className="w-4 h-4 text-primary" />
+                          <Code className="w-4 h-4 text-orange-400" />
                           SMS API Integration
                         </div>
                       </NavigationMenuLink>
@@ -86,7 +94,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/services/cpaas-omnichannel" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Layers className="w-4 h-4 text-primary" />
+                          <Layers className="w-4 h-4 text-pink-400" />
                           CPaaS/Omnichannel
                         </div>
                       </NavigationMenuLink>
@@ -94,7 +102,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/services/web-design-development" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Globe className="w-4 h-4 text-primary" />
+                          <Globe className="w-4 h-4 text-cyan-400" />
                           Web Design & Development
                         </div>
                       </NavigationMenuLink>
@@ -108,11 +116,11 @@ const Header = () => {
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 glass-strong border-0">
+                  <ul className="grid w-[400px] gap-3 p-4 bg-background/95 backdrop-blur-xl border border-purple-500/20 shadow-xl">
                     <li>
                       <NavigationMenuLink href="/products/sms-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <MessagesSquare className="w-4 h-4 text-primary" />
+                          <MessagesSquare className="w-4 h-4 text-violet-400" />
                           SMS Solutions
                         </div>
                       </NavigationMenuLink>
@@ -120,7 +128,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/products/whatsapp-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <MessageCircle className="w-4 h-4 text-primary" />
+                          <MessageCircle className="w-4 h-4 text-emerald-400" />
                           WhatsApp Solution
                         </div>
                       </NavigationMenuLink>
@@ -128,7 +136,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/products/voice-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Phone className="w-4 h-4 text-primary" />
+                          <Phone className="w-4 h-4 text-yellow-400" />
                           Voice Solution
                         </div>
                       </NavigationMenuLink>
@@ -136,7 +144,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/products/email-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Mail className="w-4 h-4 text-primary" />
+                          <Mail className="w-4 h-4 text-red-400" />
                           Email Solution
                         </div>
                       </NavigationMenuLink>
@@ -144,7 +152,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/products/chatbot-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Bot className="w-4 h-4 text-primary" />
+                          <Bot className="w-4 h-4 text-indigo-400" />
                           Chatbot Solution
                         </div>
                       </NavigationMenuLink>
@@ -152,7 +160,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/products/rcs-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Sparkles className="w-4 h-4 text-primary" />
+                          <Sparkles className="w-4 h-4 text-amber-400" />
                           Rich Communication Solution
                         </div>
                       </NavigationMenuLink>
@@ -160,7 +168,7 @@ const Header = () => {
                     <li>
                       <NavigationMenuLink href="/products/voip-solutions" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                         <div className="flex items-center gap-3 text-sm font-medium leading-none">
-                          <Headphones className="w-4 h-4 text-primary" />
+                          <Headphones className="w-4 h-4 text-teal-400" />
                           VoIP Solution
                         </div>
                       </NavigationMenuLink>
@@ -194,6 +202,7 @@ const Header = () => {
           <button
             className="md:hidden glass p-2 rounded-lg hover-glow"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -201,72 +210,98 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 glass-strong rounded-2xl p-6">
-            <a href="/" className="block text-foreground hover:text-primary transition-smooth">
+          <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-background/98 backdrop-blur-xl rounded-2xl p-6 border border-purple-500/20 shadow-2xl max-h-[80vh] overflow-y-auto">
+            <a href="/" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium">
               Home
             </a>
-            <div className="space-y-2">
-              <div className="text-sm font-semibold text-muted-foreground">Services</div>
-              <a href="/services/a2p-sms" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <MessageSquare className="w-4 h-4 text-primary" />
-                A2P SMS Service
-              </a>
-              <a href="/services/bulk-sms-marketing" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Send className="w-4 h-4 text-primary" />
-                Bulk SMS Marketing Enterprise
-              </a>
-              <a href="/services/sms-api-integration" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Code className="w-4 h-4 text-primary" />
-                SMS API Integration
-              </a>
-              <a href="/services/cpaas-omnichannel" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Layers className="w-4 h-4 text-primary" />
-                CPaaS/Omnichannel
-              </a>
-              <a href="/services/web-design-development" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Globe className="w-4 h-4 text-primary" />
-                Web Design & Development
-              </a>
+            
+            {/* Services Dropdown */}
+            <div className="border-t border-purple-500/10">
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="flex items-center justify-between w-full py-3 text-foreground hover:text-primary transition-smooth font-medium"
+              >
+                <span>Services</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isServicesOpen && (
+                <div className="pl-4 pb-2 space-y-1">
+                  <a href="/services/a2p-sms" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <MessageSquare className="w-4 h-4 text-blue-400" />
+                    A2P SMS Service
+                  </a>
+                  <a href="/services/bulk-sms-marketing" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Send className="w-4 h-4 text-green-400" />
+                    Bulk SMS Marketing Enterprise
+                  </a>
+                  <a href="/services/sms-api-integration" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Code className="w-4 h-4 text-orange-400" />
+                    SMS API Integration
+                  </a>
+                  <a href="/services/cpaas-omnichannel" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Layers className="w-4 h-4 text-pink-400" />
+                    CPaaS/Omnichannel
+                  </a>
+                  <a href="/services/web-design-development" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Globe className="w-4 h-4 text-cyan-400" />
+                    Web Design & Development
+                  </a>
+                </div>
+              )}
             </div>
-            <div className="space-y-2">
-              <div className="text-sm font-semibold text-muted-foreground">Products</div>
-              <a href="/products/sms-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <MessagesSquare className="w-4 h-4 text-primary" />
-                SMS Solutions
-              </a>
-              <a href="/products/whatsapp-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <MessageCircle className="w-4 h-4 text-primary" />
-                WhatsApp Solution
-              </a>
-              <a href="/products/voice-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Phone className="w-4 h-4 text-primary" />
-                Voice Solution
-              </a>
-              <a href="/products/email-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Mail className="w-4 h-4 text-primary" />
-                Email Solution
-              </a>
-              <a href="/products/chatbot-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Bot className="w-4 h-4 text-primary" />
-                Chatbot Solution
-              </a>
-              <a href="/products/rcs-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Sparkles className="w-4 h-4 text-primary" />
-                Rich Communication Solution
-              </a>
-              <a href="/products/voip-solutions" className="flex items-center gap-2 text-foreground hover:text-primary transition-smooth pl-4">
-                <Headphones className="w-4 h-4 text-primary" />
-                VoIP Solution
-              </a>
+
+            {/* Products Dropdown */}
+            <div className="border-t border-purple-500/10">
+              <button
+                onClick={() => setIsProductsOpen(!isProductsOpen)}
+                className="flex items-center justify-between w-full py-3 text-foreground hover:text-primary transition-smooth font-medium"
+              >
+                <span>Products</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isProductsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isProductsOpen && (
+                <div className="pl-4 pb-2 space-y-1">
+                  <a href="/products/sms-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <MessagesSquare className="w-4 h-4 text-violet-400" />
+                    SMS Solutions
+                  </a>
+                  <a href="/products/whatsapp-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <MessageCircle className="w-4 h-4 text-emerald-400" />
+                    WhatsApp Solution
+                  </a>
+                  <a href="/products/voice-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Phone className="w-4 h-4 text-yellow-400" />
+                    Voice Solution
+                  </a>
+                  <a href="/products/email-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Mail className="w-4 h-4 text-red-400" />
+                    Email Solution
+                  </a>
+                  <a href="/products/chatbot-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Bot className="w-4 h-4 text-indigo-400" />
+                    Chatbot Solution
+                  </a>
+                  <a href="/products/rcs-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    Rich Communication Solution
+                  </a>
+                  <a href="/products/voip-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <Headphones className="w-4 h-4 text-teal-400" />
+                    VoIP Solution
+                  </a>
+                </div>
+              )}
             </div>
-            <a href="/blogs" className="block text-foreground hover:text-primary transition-smooth">
+
+            <a href="/blogs" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
               Blogs
             </a>
-            <a href="/contact" className="block text-foreground hover:text-primary transition-smooth">
+            <a href="/contact" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
               Contact
             </a>
-            <div className="flex flex-col space-y-3 pt-4 border-t border-purple-500/20">
-              <Button variant="cyber" className="hover-lift">
+            
+            <div className="pt-4 border-t border-purple-500/10">
+              <Button variant="cyber" className="hover-lift w-full" onClick={closeMenu}>
                 <Zap className="w-4 h-4" />
                 Get Started
               </Button>
