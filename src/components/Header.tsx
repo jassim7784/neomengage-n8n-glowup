@@ -39,10 +39,10 @@ const Header = () => {
     <header className={`fixed top-0 w-full z-50 bg-background/95 backdrop-blur-xl border-b border-purple-500/20 rounded-b-3xl transition-all duration-300 ${
       isScrolled ? 'h-[70px] md:h-[70px]' : 'h-[70px] md:h-[100px]'
     }`}>
-      <nav className={`container mx-auto px-6 h-full flex items-center transition-all duration-300 ${
+      <nav className={`container mx-auto px-8 h-full flex items-center transition-all duration-300 ${
         isScrolled ? 'py-2' : 'py-3 md:py-4'
       }`}>
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full relative">
           <a href="/" className="flex items-center">
             <LogoWithBackground 
               className={`hidden md:block transition-all duration-300 ${
@@ -52,9 +52,9 @@ const Header = () => {
             <LogoWithBackground className="md:hidden w-[260px] h-[65px]" />
           </a>
 
-          {/* Desktop Navigation */}
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList className="space-x-2">
+          {/* Desktop Navigation - Centered */}
+          <NavigationMenu className="hidden md:flex absolute left-1/2 transform -translate-x-1/2">
+            <NavigationMenuList className="space-x-6">
               <NavigationMenuItem>
                 <NavigationMenuLink href="/" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                   Home
@@ -178,12 +178,6 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink href="/blogs" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
-                  Blogs
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
                 <NavigationMenuLink href="/contact" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                   Contact
                 </NavigationMenuLink>
@@ -287,9 +281,6 @@ const Header = () => {
               )}
             </div>
 
-            <a href="/blogs" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
-              Blogs
-            </a>
             <a href="/contact" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
               Contact
             </a>

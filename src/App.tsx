@@ -23,7 +23,7 @@ import RichCommunicationSolutions from "./pages/products/RichCommunicationSoluti
 import VoIPSolutions from "./pages/products/VoIPSolutions";
 
 // Other Pages
-import Blogs from "./pages/Blogs";
+// import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
@@ -54,7 +54,7 @@ const App = () => (
           <Route path="/products/voip-solutions" element={<VoIPSolutions />} />
           
           {/* Other Pages */}
-          <Route path="/blogs" element={<Blogs />} />
+          {/* <Route path="/blogs" element={<Blogs />} /> */}
           <Route path="/contact" element={<Contact />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
