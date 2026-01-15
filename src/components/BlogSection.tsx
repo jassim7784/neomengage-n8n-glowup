@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 // Placeholder blog posts - replace with actual LinkedIn blog URLs and images
@@ -59,33 +59,39 @@ const BlogSection = () => {
         </div>
       </div>
       
-      {/* Tabloid Style Marquee Ticker */}
-      <div className={`bg-background/80 backdrop-blur-sm border-y border-primary/20 py-4 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="flex animate-marquee gap-0 hover:pause-animation items-center">
-          {duplicatedPosts.map((post, index) => (
-            <a 
-              key={`${post.id}-${index}`}
-              href={post.url}
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-foreground hover:text-primary transition-colors whitespace-nowrap group px-4"
-            >
-              {/* Small thumbnail */}
-              <img 
-                src={post.image} 
-                alt=""
-                className="w-10 h-10 rounded-md object-cover flex-shrink-0 border border-primary/20"
-              />
-              {/* Bold headline */}
-              <span className="font-bold text-sm md:text-base uppercase tracking-wide group-hover:text-primary transition-colors">
-                {post.title}
-              </span>
-              {/* LinkedIn icon */}
-              <Linkedin className="w-4 h-4 text-[#0A66C2] flex-shrink-0" />
-              {/* Separator */}
-              <span className="text-primary/50 mx-4 text-xl">|</span>
-            </a>
-          ))}
+      {/* Rectangular Card Marquee Container */}
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className={`glass rounded-2xl p-6 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="flex animate-marquee gap-6 hover:pause-animation">
+            {duplicatedPosts.map((post, index) => (
+              <a 
+                key={`${post.id}-${index}`}
+                href={post.url}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-shrink-0 w-64 group"
+              >
+                <div className="glass rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all duration-300">
+                  <div className="overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-64 h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-sm line-clamp-2 mb-3 group-hover:text-primary transition-colors min-h-[40px]">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-[#0A66C2] text-xs font-medium">
+                      <Linkedin className="w-4 h-4" />
+                      <span>Read on LinkedIn</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
