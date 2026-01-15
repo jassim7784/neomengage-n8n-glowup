@@ -49,7 +49,7 @@ const Header = () => {
                 isScrolled ? 'w-[280px] h-[70px]' : 'w-[350px] h-[90px]'
               }`} 
             />
-            <LogoWithBackground className="md:hidden w-[200px] h-[50px]" />
+            <LogoWithBackground className="md:hidden w-[260px] h-[65px]" />
           </a>
 
           {/* Desktop Navigation */}
