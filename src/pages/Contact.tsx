@@ -23,7 +23,7 @@ const Contact = () => {
   };
 
   const contactMethods = [
-    { icon: Mail, title: "Email Us", description: "Get in touch via email", contact: "hello@neomengage.com", action: "mailto:hello@neomengage.com" },
+    { icon: Mail, title: "Email Us", description: "Get in touch via email", contact: "info@neomengage.com", action: "mailto:info@neomengage.com" },
     { icon: Phone, title: "Call Us", description: "Speak with our team", contact: "+1 (555) 123-4567", action: "tel:+15551234567" },
     { icon: MessageCircle, title: "Live Chat", description: "Chat with support", contact: "Available 24/7", action: "#" }
   ];
