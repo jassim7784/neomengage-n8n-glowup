@@ -1,6 +1,9 @@
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Send, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import TiltCard from "@/components/ui/TiltCard";
@@ -12,24 +15,40 @@ const Contact = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    consent: false
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.consent) {
+      toast({
+        title: "Consent Required",
+        description: "Please agree to receive communications before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
       toast({ title: "Message Sent!", description: "We'll get back to you soon." });
+      setFormData({ name: "", email: "", phone: "", service: "", consent: false });
     }, 1500);
   };
 
   const contactMethods = [
     { icon: Mail, title: "Email Us", description: "Get in touch via email", contact: "info@neomengage.com", action: "mailto:info@neomengage.com" },
-    { icon: Phone, title: "Call Us", description: "Speak with our team", contact: "+1 (555) 123-4567", action: "tel:+15551234567" },
+    { icon: Phone, title: "Call Us", description: "Speak with our team", contact: "+44 7436787758", action: "tel:+447436787758" },
     { icon: MessageCircle, title: "Live Chat", description: "Chat with support", contact: "Available 24/7", action: "#" }
   ];
 
   const offices = [
-    { city: "New York", address: "123 Business Ave, Suite 100", details: "New York, NY 10001" },
+    { city: "UK Office", address: "71 A Meadowlands, Downpatrick", details: "Co Down, BT30 6HG, UK" },
     { city: "London", address: "456 Tech Street, Floor 5", details: "London, UK EC1A 1BB" },
     { city: "Singapore", address: "789 Innovation Drive, Level 10", details: "Singapore 018956" }
   ];
@@ -96,41 +115,64 @@ const Contact = () => {
                   <CardTitle className="text-2xl text-center">Send us a Message</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <Input
+                        type="text"
+                        placeholder="Name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                      />
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium mb-2">First Name</label>
-                        <input type="text" className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="John" required />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-2">Last Name</label>
-                        <input type="text" className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Doe" required />
-                      </div>
+                      <Input
+                        type="email"
+                        placeholder="Email*"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                      />
+                      <Input
+                        type="tel"
+                        placeholder="Phone*"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        required
+                        className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Email</label>
-                      <input type="email" className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="john@company.com" required />
+                      <Textarea
+                        placeholder="Service you are looking for?"
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        rows={4}
+                        className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                      />
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Service Interest</label>
-                      <select className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                        <option>Select a service</option>
-                        <option>A2P SMS Service</option>
-                        <option>Bulk SMS Marketing</option>
-                        <option>SMS API Integration</option>
-                        <option>CPaaS / Omnichannel</option>
-                        <option>Web Design & Development</option>
-                      </select>
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id="consent-contact"
+                        checked={formData.consent}
+                        onCheckedChange={(checked) => setFormData({ ...formData, consent: checked as boolean })}
+                        className="mt-1"
+                      />
+                      <label htmlFor="consent-contact" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                        I agree to receive all updates via SMS, WhatsApp, RCS, Email, and any other communication channel.
+                      </label>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">Message</label>
-                      <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none" placeholder="Tell us about your project..." required />
-                    </div>
-                    <Button type="submit" className="w-full py-6 rounded-xl hover:shadow-neon transition-all group" disabled={isSubmitting}>
+                    <Button 
+                      type="submit" 
+                      className="w-full py-6 rounded-xl bg-red-600 hover:bg-red-700 text-white transition-all group" 
+                      disabled={isSubmitting}
+                    >
                       {isSubmitting ? (
                         <span className="flex items-center gap-2"><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</span>
                       ) : (
-                        <span className="flex items-center gap-2">Send Message <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></span>
+                        <span className="flex items-center gap-2"><Send className="w-5 h-5" /> Get In Touch</span>
                       )}
                     </Button>
                   </form>

@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const EnquireSection = () => {
@@ -10,16 +11,26 @@ const EnquireSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    phone: "",
+    service: "",
+    consent: false
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.consent) {
+      toast({
+        title: "Consent Required",
+        description: "Please agree to receive communications before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
     toast({
       title: "Message Sent!",
       description: "We'll get back to you soon.",
     });
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", service: "", consent: false });
   };
 
   return (
@@ -72,7 +83,8 @@ const EnquireSection = () => {
 
             {/* Contact Form */}
             <div className="glass-strong p-8 rounded-3xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Send us a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Input
                     placeholder="Name"
@@ -82,27 +94,50 @@ const EnquireSection = () => {
                     className="bg-background/50"
                   />
                 </div>
-                <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email*"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    className="bg-background/50"
+                  />
+                  <Input
+                    type="tel"
+                    placeholder="Phone*"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
                     className="bg-background/50"
                   />
                 </div>
                 <div>
                   <Textarea
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    className="min-h-[150px] bg-background/50"
+                    placeholder="Service you are looking for?"
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="min-h-[120px] bg-background/50"
                   />
                 </div>
-                <Button type="submit" className="w-full" size="lg">
-                  Submit
+                <div className="flex items-start space-x-3">
+                  <Checkbox
+                    id="consent"
+                    checked={formData.consent}
+                    onCheckedChange={(checked) => setFormData({ ...formData, consent: checked as boolean })}
+                    className="mt-1"
+                  />
+                  <label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                    I agree to receive all updates via SMS, WhatsApp, RCS, Email, and any other communication channel.
+                  </label>
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-red-600 hover:bg-red-700 text-white" 
+                  size="lg"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Get In Touch
                 </Button>
               </form>
             </div>

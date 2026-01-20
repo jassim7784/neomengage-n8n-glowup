@@ -24,6 +24,8 @@ import VoIPSolutions from "./pages/products/VoIPSolutions";
 
 // Other Pages
 import Contact from "./pages/Contact";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +53,10 @@ const App = () => (
           <Route path="/products/chatbot-solutions" element={<ChatbotSolutions />} />
           <Route path="/products/rcs-solutions" element={<RichCommunicationSolutions />} />
           <Route path="/products/voip-solutions" element={<VoIPSolutions />} />
+          
+          {/* Legal Pages */}
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           
           {/* Other Pages */}
           <Route path="/contact" element={<Contact />} />
