@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 // Placeholder blog posts - replace with actual LinkedIn blog URLs and images
 const blogPosts = [
@@ -45,9 +53,6 @@ const blogPosts = [
 const BlogSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
-  // Duplicate posts for seamless infinite scroll
-  const duplicatedPosts = [...blogPosts, ...blogPosts, ...blogPosts];
-
   return (
     <section ref={ref} className="py-12 md:py-16 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 mb-8">
@@ -59,40 +64,49 @@ const BlogSection = () => {
         </div>
       </div>
       
-      {/* Rectangular Card Marquee Container */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className={`glass rounded-2xl p-6 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="flex animate-marquee gap-6 hover:pause-animation">
-            {duplicatedPosts.map((post, index) => (
-              <a 
-                key={`${post.id}-${index}`}
-                href={post.url}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex-shrink-0 w-64 group"
-              >
-                <div className="glass rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all duration-300">
-                  <div className="overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-64 h-40 object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-sm line-clamp-2 mb-3 group-hover:text-primary transition-colors min-h-[40px]">
-                      {post.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-[#0A66C2] text-xs font-medium">
-                      <Linkedin className="w-4 h-4" />
-                      <span>Read on LinkedIn</span>
+      {/* Timer-based Carousel Slider */}
+      <div className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          plugins={[
+            Autoplay({ delay: 4000, stopOnInteraction: false }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {blogPosts.map((post) => (
+              <CarouselItem key={post.id} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                <a 
+                  href={post.url}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <div className="glass rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all duration-300 h-full">
+                    <div className="overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-bold text-base line-clamp-2 mb-3 group-hover:text-primary transition-colors min-h-[48px]">
+                        {post.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-[#0A66C2] text-sm font-medium">
+                        <Linkedin className="w-4 h-4" />
+                        <span>Read on LinkedIn</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </CarouselItem>
             ))}
-          </div>
-        </div>
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex -left-4" />
+          <CarouselNext className="hidden md:flex -right-4" />
+        </Carousel>
       </div>
 
       {/* CTA Button */}

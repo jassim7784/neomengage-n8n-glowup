@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const StatsSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
-  const { count, startAnimation } = useCountUp(1000, 2000);
+  const { count, startAnimation } = useCountUp(273, 2000);
 
   useEffect(() => {
     if (isVisible) {
@@ -38,7 +38,7 @@ const StatsSection = () => {
               <div className={`h-1 bg-gradient-to-r from-primary to-purple-500 mt-4 rounded-full ${isVisible ? 'animate-line-grow' : 'scale-x-0'}`} style={{ maxWidth: '200px' }} />
             </div>
             <h2 className={`text-2xl md:text-3xl font-bold mt-6 mb-4 text-foreground transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              More than 1,000 businesses rely on us to deliver communication that creates measurable impact.
+              More than 273 businesses rely on us to deliver communication that creates measurable impact.
             </h2>
           </div>
 
