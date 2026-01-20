@@ -111,7 +111,7 @@ const Header = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
+            <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-foreground hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
                   Products
                 </NavigationMenuTrigger>
@@ -175,6 +175,12 @@ const Header = () => {
                     </li>
                   </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuLink href="/blogs" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
+                  Blogs
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -280,6 +286,10 @@ const Header = () => {
                 </div>
               )}
             </div>
+
+            <a href="/blogs" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
+              Blogs
+            </a>
 
             <a href="/contact" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
               Contact
