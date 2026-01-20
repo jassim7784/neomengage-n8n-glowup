@@ -1,3 +1,12 @@
+/**
+ * Header Component
+ * 
+ * Main navigation bar with responsive design:
+ * - Desktop: Full logo with dropdown menus for Services/Products
+ * - Mobile: Smaller logo flush-left with hamburger menu
+ * - Implements sticky scroll behavior with height transition
+ * - Logo sizes adjust dynamically based on scroll state
+ */
 import { Button } from "@/components/ui/button";
 import { 
   Menu, X, Zap, ChevronDown,
@@ -39,17 +48,20 @@ const Header = () => {
     <header className={`fixed top-0 w-full z-50 bg-background/95 backdrop-blur-xl border-b border-purple-500/20 rounded-b-3xl transition-all duration-300 ${
       isScrolled ? 'h-[70px] md:h-[70px]' : 'h-[70px] md:h-[100px]'
     }`}>
-      <nav className={`container mx-auto pl-2 pr-4 md:px-8 h-full flex items-center transition-all duration-300 ${
+      {/* Navigation container - pl-0 for mobile logo flush-left alignment */}
+      <nav className={`container mx-auto pl-0 pr-4 md:px-8 h-full flex items-center transition-all duration-300 ${
         isScrolled ? 'py-2' : 'py-3 md:py-4'
       }`}>
         <div className="flex items-center justify-between w-full relative">
-          <a href="/" className="flex items-center">
+          {/* Logo - responsive sizing based on scroll and viewport */}
+          <a href="/" className="flex items-center ml-0">
             <LogoWithBackground 
               className={`hidden md:block transition-all duration-300 ${
                 isScrolled ? 'w-[280px] h-[70px]' : 'w-[350px] h-[90px]'
               }`} 
             />
-            <LogoWithBackground className="md:hidden w-[260px] h-[65px]" />
+            {/* Mobile logo: 260x65px, flush left with ml-0 */}
+            <LogoWithBackground className="md:hidden w-[260px] h-[65px] ml-0" />
           </a>
 
           {/* Desktop Navigation - Centered with offset for logo */}

@@ -1,3 +1,12 @@
+/**
+ * EnquireSection Component
+ * 
+ * Homepage contact section with:
+ * - Company contact information (address, phone, email)
+ * - Contact form that submits to Lovable Cloud database
+ * - Form fields: Name, Email, Phone, Service inquiry, Consent checkbox
+ * - Red "Get In Touch" button with loading state
+ */
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -5,9 +14,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const EnquireSection = () => {
   const { toast } = useToast();
+  // Form state management for all input fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,9 +26,19 @@ const EnquireSection = () => {
     service: "",
     consent: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * Handle form submission
+   * - Validates consent checkbox
+   * - Submits data to contact_submissions table in database
+   * - Shows success/error toast notifications
+   * - Resets form on success
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate consent is checked
     if (!formData.consent) {
       toast({
         title: "Consent Required",
@@ -26,11 +47,39 @@ const EnquireSection = () => {
       });
       return;
     }
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", phone: "", service: "", consent: false });
+
+    setIsSubmitting(true);
+    
+    try {
+      // Insert form data into contact_submissions table
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          consent: formData.consent
+        });
+
+      if (error) throw error;
+
+      // Show success message and reset form
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you soon.",
+      });
+      setFormData({ name: "", email: "", phone: "", service: "", consent: false });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -131,13 +180,24 @@ const EnquireSection = () => {
                     I agree to receive all updates via SMS, WhatsApp, RCS, Email, and any other communication channel.
                   </label>
                 </div>
+                {/* Submit button with loading state */}
                 <Button 
                   type="submit" 
                   className="w-full bg-red-600 hover:bg-red-700 text-white" 
                   size="lg"
+                  disabled={isSubmitting}
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Get In Touch
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </span>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      Get In Touch
+                    </>
+                  )}
                 </Button>
               </form>
             </div>

@@ -1,3 +1,13 @@
+/**
+ * Contact Page
+ * 
+ * Full contact page with multiple sections:
+ * - Hero section with animated heading
+ * - Contact methods (Email, Phone, Live Chat)
+ * - Contact form that submits to Lovable Cloud database
+ * - Office locations grid
+ * - Business hours information
+ */
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,11 +20,15 @@ import TiltCard from "@/components/ui/TiltCard";
 import GlowingCard from "@/components/ui/GlowingCard";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
+  // Animation hook for scroll-based reveal effects
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Form state management for all input fields
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,8 +37,17 @@ const Contact = () => {
     consent: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * Handle form submission
+   * - Validates consent checkbox
+   * - Submits data to contact_submissions table in database
+   * - Shows success/error toast notifications
+   * - Resets form on success
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate consent is checked
     if (!formData.consent) {
       toast({
         title: "Consent Required",
@@ -33,12 +56,39 @@ const Contact = () => {
       });
       return;
     }
+    
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({ title: "Message Sent!", description: "We'll get back to you soon." });
+    
+    try {
+      // Insert form data into contact_submissions table
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          consent: formData.consent
+        });
+
+      if (error) throw error;
+
+      // Show success message and reset form
+      toast({ 
+        title: "Message Sent!", 
+        description: "We'll get back to you soon." 
+      });
       setFormData({ name: "", email: "", phone: "", service: "", consent: false });
-    }, 1500);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
