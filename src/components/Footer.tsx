@@ -1,4 +1,5 @@
 import { Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import LogoWithBackground from "./LogoWithBackground";
 
 const Footer = () => {
@@ -63,6 +64,14 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 text-center">
+          <div className="flex justify-center gap-6 mb-4">
+            <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-smooth text-sm">
+              Terms & Conditions
+            </Link>
+            <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-smooth text-sm">
+              Privacy Policy
+            </Link>
+          </div>
           <p className="text-muted-foreground text-sm">
             COPYRIGHT © 2025 neom engage
           </p>
