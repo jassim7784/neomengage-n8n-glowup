@@ -11,43 +11,31 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-// Placeholder blog posts - replace with actual LinkedIn blog URLs and images
+// Real LinkedIn blog posts
 const blogPosts = [
   {
     id: 1,
-    title: "The Future of CPaaS: Trends to Watch in 2025",
-    url: "https://www.linkedin.com/company/neomengage/posts/",
+    title: "Latest Updates from NeoMengage",
+    url: "https://www.linkedin.com/posts/neom-engage_activity-7417212556341104640-8Rpl?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj-J9kBN9X-BM4X4P0DNmLgYnTIWfy1QnY",
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=250&fit=crop",
   },
   {
     id: 2,
-    title: "How A2P SMS is Revolutionizing Customer Engagement",
-    url: "https://www.linkedin.com/company/neomengage/posts/",
+    title: "Industry Insights & Trends",
+    url: "https://www.linkedin.com/posts/neom-engage_activity-7419382904633495553-RBfV?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj-J9kBN9X-BM4X4P0DNmLgYnTIWfy1QnY",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop",
   },
   {
     id: 3,
-    title: "WhatsApp Business API: A Complete Guide for Enterprises",
-    url: "https://www.linkedin.com/company/neomengage/posts/",
+    title: "Communication Solutions for Business",
+    url: "https://www.linkedin.com/posts/neom-engage_activity-7419383515697504257-xRmY?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj-J9kBN9X-BM4X4P0DNmLgYnTIWfy1QnY",
     image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=400&h=250&fit=crop",
   },
   {
     id: 4,
-    title: "AI Chatbots: Transforming Customer Support in 2025",
-    url: "https://www.linkedin.com/company/neomengage/posts/",
+    title: "Enterprise Messaging Strategies",
+    url: "https://www.linkedin.com/posts/neom-engage_activity-7419384443188142081-u5Gg?utm_source=share&utm_medium=member_desktop&rcm=ACoAADj-J9kBN9X-BM4X4P0DNmLgYnTIWfy1QnY",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Omnichannel Communication: Why Your Business Needs It",
-    url: "https://www.linkedin.com/company/neomengage/posts/",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop",
-  },
-  {
-    id: 6,
-    title: "SMS Marketing Best Practices for Higher ROI",
-    url: "https://www.linkedin.com/company/neomengage/posts/",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
   },
 ];
 
@@ -114,7 +102,7 @@ const BlogSection = () => {
       {/* CTA Button */}
       <div className={`container mx-auto px-4 md:px-6 lg:px-8 text-center mt-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <a 
-          href="https://www.linkedin.com/company/neomengage/posts/" 
+          href="https://uk.linkedin.com/company/neom-engage" 
           target="_blank" 
           rel="noopener noreferrer"
         >
