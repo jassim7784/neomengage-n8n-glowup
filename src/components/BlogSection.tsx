@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -52,6 +53,9 @@ const blogPosts = [
 
 const BlogSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: false })
+  );
 
   return (
     <section ref={ref} className="py-12 md:py-16 overflow-hidden">
@@ -68,9 +72,7 @@ const BlogSection = () => {
       <div className={`container mx-auto px-4 md:px-6 lg:px-8 transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         <Carousel
           opts={{ align: "start", loop: true }}
-          plugins={[
-            Autoplay({ delay: 4000, stopOnInteraction: false }),
-          ]}
+          plugins={[plugin.current]}
           className="w-full"
         >
           <CarouselContent className="-ml-4">
