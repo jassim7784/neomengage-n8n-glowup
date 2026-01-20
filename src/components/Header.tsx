@@ -190,7 +190,7 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuLink href="https://www.linkedin.com/company/neomengage/posts/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
+                <NavigationMenuLink href="https://uk.linkedin.com/company/neom-engage" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                   Blogs
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -299,7 +299,7 @@ const Header = () => {
               )}
             </div>
 
-            <a href="https://www.linkedin.com/company/neomengage/posts/" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
+            <a href="https://uk.linkedin.com/company/neom-engage" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="block py-3 text-foreground hover:text-primary transition-smooth font-medium border-t border-purple-500/10">
               Blogs
             </a>
 
