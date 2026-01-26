@@ -4,7 +4,7 @@
  * Full contact page with multiple sections:
  * - Hero section with animated heading
  * - Contact methods (Email, Phone, Live Chat)
- * - Contact form that submits to Lovable Cloud database
+ * - Contact form that submits to PHP backend
  * - Office locations grid
  * - Business hours information
  */
@@ -20,7 +20,6 @@ import TiltCard from "@/components/ui/TiltCard";
 import GlowingCard from "@/components/ui/GlowingCard";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   // Animation hook for scroll-based reveal effects
@@ -40,7 +39,7 @@ const Contact = () => {
   /**
    * Handle form submission
    * - Validates consent checkbox
-   * - Submits data to contact_submissions table in database
+   * - Submits data to PHP backend for email sending
    * - Shows success/error toast notifications
    * - Resets form on success
    */
@@ -60,30 +59,32 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Insert form data into contact_submissions table
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          consent: formData.consent
-        });
-
-      if (error) throw error;
-
-      // Show success message and reset form
-      toast({ 
-        title: "Message Sent!", 
-        description: "We'll get back to you soon." 
+      // POST to PHP backend
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
       });
-      setFormData({ name: "", email: "", phone: "", service: "", consent: false });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success message and reset form
+        toast({ 
+          title: "Message Sent!", 
+          description: result.message || "We'll get back to you soon." 
+        });
+        setFormData({ name: "", email: "", phone: "", service: "", consent: false });
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
         variant: "destructive"
       });
     } finally {
