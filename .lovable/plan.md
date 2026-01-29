@@ -1,85 +1,96 @@
 
 
-## Navbar Alignment Fix
+## Stats Section Enhancement: Centralized Numbers & Improved Visibility
 
-This plan will restructure the navbar to achieve perfect three-column alignment: **LOGO (left) | NAV BAR (center) | Get Started (right)**
-
----
-
-### Current Issue
-
-The current implementation uses:
-- Absolute positioning with manual offset for the navigation menu
-- `ml-auto` on the button which doesn't create true symmetry
-
-This causes the nav items to appear off-center because the offset doesn't account for the button width.
+This plan will improve the stats section to make the numbers and symbols more prominent, centralized, and easier to read at a glance.
 
 ---
 
-### Solution: Flexbox Three-Column Layout
+### Current Layout Issue
 
-Replace the current layout with a true three-column flexbox structure where:
-- Left column (Logo): Fixed width, left-aligned
-- Center column (Nav): Flexible, truly centered
-- Right column (Button): Fixed width, right-aligned
+The current stats cards have:
+- Icon at top, number below, then label
+- Number and suffix displayed inline (`{displayValue}{stat.suffix}`)
+- Medium-sized text that could be larger for impact
 
 ---
 
-### Layout Diagram
+### Proposed Enhancement
+
+**Focus on the NUMBER as the hero element** - make it larger, bolder, and instantly readable.
 
 ```text
-┌──────────────────────────────────────────────────────────────────┐
-│                                                                  │
-│  [LOGO]          Home | Services | Products | Blogs | Contact    [Get Started]
-│                                                                  │
-│  ◄─── flex-1 ───►  ◄────────── flex-1 (centered) ──────────►  ◄─── flex-1 ───►
-│                                                                  │
-└──────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│                                                                        │
+│   ┌─────────────┐   ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+│   │     15      │   │    273      │   │    200      │   │   99.9      │
+│   │     M+      │   │      +      │   │      +      │   │     %       │
+│   │             │   │             │   │             │   │             │
+│   │  Messages   │   │   Clients   │   │   Global    │   │   Uptime    │
+│   │    Sent     │   │   Served    │   │   Reach     │   │             │
+│   └─────────────┘   └─────────────┘   └─────────────┘   └─────────────┘
+│                                                                        │
+│                    Numbers BIG & CENTERED                              │
+│                    Suffix directly below number                        │
+│                    Label at bottom                                     │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### Technical Changes to Header.tsx
+### Changes to StatsSection.tsx
 
-**Line 55 - Container div:**
-Change from:
-```tsx
-<div className="flex items-center justify-between w-full relative">
-```
-To:
-```tsx
-<div className="flex items-center w-full">
-```
+**1. Increase Number Size**
+- Change from `text-4xl lg:text-5xl` to `text-5xl md:text-6xl lg:text-7xl`
+- Make the number truly stand out as the focal point
 
-**Lines 57-65 - Logo section:**
-Wrap in a flex container with fixed width:
+**2. Separate Number and Suffix**
+- Display number and suffix on separate lines or with clear visual hierarchy
+- Number: Extra large and bold
+- Suffix: Slightly smaller but still prominent
+
+**3. Remove Icon (Optional) or Minimize**
+- Option A: Remove icons entirely to focus on numbers
+- Option B: Keep small icons but reduce their visual weight
+
+**4. Simplify Card Design**
+- Remove animated underline (visual clutter)
+- Cleaner, minimal card with focus on the stat
+
+**5. Speed Up Animation**
+- Reduce counter animation from 2000ms to 1500ms for faster comprehension
+
+---
+
+### Technical Implementation
+
+**Counter section (lines 66-71) - New Structure:**
 ```tsx
-<div className="flex-1 flex justify-start">
-  <a href="/" className="flex items-center">
-    <!-- Logo components -->
-  </a>
+{/* Number - HUGE and centered */}
+<div className="text-5xl md:text-6xl lg:text-7xl font-black mb-1 text-center">
+  <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+    {displayValue}
+  </span>
+</div>
+
+{/* Suffix - Below number, still prominent */}
+<div className="text-2xl md:text-3xl font-bold text-primary/80 mb-3">
+  {stat.suffix}
 </div>
 ```
 
-**Lines 67-204 - Navigation Menu:**
-- Remove `absolute left-[calc(50%+80px)] transform -translate-x-1/2`
-- Wrap in a flex container that centers the content:
-```tsx
-<div className="hidden md:flex flex-1 justify-center">
-  <NavigationMenu>
-    <!-- Navigation items -->
-  </NavigationMenu>
-</div>
-```
+**Card simplification (lines 56-86):**
+- Remove icon section entirely
+- Remove animated underline
+- Add stronger text shadow/glow for readability
+- Reduce padding for tighter layout
 
-**Lines 206-209 - Get Started Button:**
-Wrap in a flex container with fixed width:
+**Counter speed (lines 16-19):**
 ```tsx
-<div className="hidden md:flex flex-1 justify-end">
-  <Button asChild className="bg-primary hover:bg-primary/90">
-    <a href="/contact">Get Started</a>
-  </Button>
-</div>
+const counter1 = useCountUp(15, 1500);  // Faster: 1500ms instead of 2000ms
+const counter2 = useCountUp(273, 1500);
+const counter3 = useCountUp(200, 1500);
+const counter4 = useCountUp(99.9, 1500);
 ```
 
 ---
@@ -88,25 +99,28 @@ Wrap in a flex container with fixed width:
 
 | Element | Before | After |
 |---------|--------|-------|
-| Container | `justify-between relative` | Simple flex row |
-| Logo | Direct child, no wrapper | Wrapped in `flex-1 justify-start` |
-| Navigation | `absolute` with offset | Wrapped in `flex-1 justify-center` |
-| Button | `ml-auto` | Wrapped in `flex-1 justify-end` |
+| Number size | `text-4xl lg:text-5xl` | `text-5xl md:text-6xl lg:text-7xl` |
+| Number + Suffix | Combined inline | Separated (number big, suffix below) |
+| Icons | 16x16 icons above number | Removed for cleaner focus |
+| Underline animation | Present | Removed |
+| Counter animation | 2000ms | 1500ms (faster) |
+| Card padding | `p-6 lg:p-8` | `p-8 lg:p-10` (more breathing room) |
 
 ---
 
 ### File Modified
 
-| File | Change |
-|------|--------|
-| `src/components/Header.tsx` | Restructure layout to three-column flexbox |
+| File | Changes |
+|------|---------|
+| `src/components/StatsSection.tsx` | Redesign stat cards with larger centered numbers |
 
 ---
 
 ### Result
 
-- Logo stays firmly on the left
-- Navigation links are perfectly centered in the viewport
-- "Get Started" button is aligned to the right
-- Equal spacing creates visual balance
+- **Numbers are HUGE** - instantly readable at a glance
+- **Suffix separated** - clean visual hierarchy (15 then M+)
+- **Faster animation** - comprehension in 1.5 seconds instead of 2
+- **Cleaner design** - removed visual clutter (icons, underlines)
+- **Focus on impact** - the numbers speak for themselves
 
