@@ -25,27 +25,27 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contact - Right aligned */}
+          <div className="md:text-right">
             <h3 className="font-semibold mb-4 text-lg text-foreground">Contact Us</h3>
             <div className="space-y-4 text-muted-foreground">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 md:flex-row-reverse md:text-right">
                 <MapPin size={20} className="text-primary mt-1 flex-shrink-0" />
                 <p>71 A Meadowlands, Downpatrick,<br />Co Down, BT30 6HG, UK</p>
               </div>
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 md:flex-row-reverse md:text-right">
                 <MapPin size={20} className="text-primary mt-1 flex-shrink-0" />
                 <p>United Arab Emirates</p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 md:flex-row-reverse">
                 <Phone size={20} className="text-primary flex-shrink-0" />
                 <p>+44 7436787758</p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 md:flex-row-reverse">
                 <Mail size={20} className="text-primary flex-shrink-0" />
                 <p>info@neomengage.com</p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 md:flex-row-reverse">
                 <Mail size={20} className="text-primary flex-shrink-0" />
                 <p>support@neomengage.com</p>
               </div>

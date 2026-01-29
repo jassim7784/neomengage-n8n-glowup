@@ -197,15 +197,18 @@ const Header = () => {
                     Blogs
                   </NavigationMenuLink>
                 </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/contact" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
+                    Contact
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
-          {/* Contact & Get Started - Desktop - flex-1 for equal column width */}
-          <div className="hidden md:flex flex-1 justify-end items-center gap-6">
-            <a href="/contact" className="text-foreground hover:text-primary transition-smooth">
-              Contact
-            </a>
+          {/* Get Started Button - Desktop - flex-1 for equal column width */}
+          <div className="hidden md:flex flex-1 justify-end">
             <Button asChild className="bg-primary hover:bg-primary/90">
               <a href="/contact">Get Started</a>
             </Button>
