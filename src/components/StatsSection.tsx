@@ -1,22 +1,29 @@
 import { useScrollAnimation, useCountUp } from "@/hooks/use-scroll-animation";
 import { useEffect } from "react";
+import { MessageSquare, Users, Globe, Shield } from "lucide-react";
 
 const StatsSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
-  const { count, startAnimation } = useCountUp(273, 2000);
+  
+  const stats = [
+    { value: 15, suffix: "M+", label: "Messages Sent", icon: MessageSquare, gradient: "from-blue-500 to-cyan-500" },
+    { value: 273, suffix: "+", label: "Clients Served", icon: Users, gradient: "from-purple-500 to-pink-500" },
+    { value: 200, suffix: "+", label: "Global Reach", icon: Globe, gradient: "from-green-500 to-emerald-500" },
+    { value: 99.9, suffix: "%", label: "Uptime", icon: Shield, gradient: "from-orange-500 to-red-500" }
+  ];
+
+  // Individual counter hooks for each stat
+  const counter1 = useCountUp(15, 2000);
+  const counter2 = useCountUp(273, 2000);
+  const counter3 = useCountUp(200, 2000);
+  const counter4 = useCountUp(99.9, 2000);
+  const counters = [counter1, counter2, counter3, counter4];
 
   useEffect(() => {
     if (isVisible) {
-      startAnimation();
+      counters.forEach(counter => counter.startAnimation());
     }
-  }, [isVisible, startAnimation]);
-
-  const features = [
-    "Omnichannel Communication",
-    "Personalized Engagement",
-    "Data-Driven Insights",
-    "Seamless Integrations"
-  ];
+  }, [isVisible]);
 
   return (
     <section ref={ref} className="py-24 relative bg-gradient-to-b from-background to-muted/20 overflow-hidden">
@@ -25,52 +32,59 @@ const StatsSection = () => {
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Stats Counter */}
-          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
-            <div className="relative">
-              <div className="text-7xl md:text-8xl lg:text-9xl font-bold text-glow-strong">
-                <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
-                  {count.toLocaleString()}+
-                </span>
-              </div>
-              {/* Animated line decoration */}
-              <div className={`h-1 bg-gradient-to-r from-primary to-purple-500 mt-4 rounded-full ${isVisible ? 'animate-line-grow' : 'scale-x-0'}`} style={{ maxWidth: '200px' }} />
-            </div>
-            <h2 className={`text-2xl md:text-3xl font-bold mt-6 mb-4 text-foreground transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              More than 273 businesses rely on us to deliver communication that creates measurable impact.
-            </h2>
-          </div>
+        {/* Section Header */}
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <p className="text-primary font-semibold mb-4 text-lg">Our Impact</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Numbers That{" "}
+            <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">Speak</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            More than 273 businesses rely on us to deliver communication that creates measurable impact.
+          </p>
+        </div>
 
-          {/* Features List */}
-          <div className="grid grid-cols-1 gap-4">
-            {features.map((feature, index) => (
+        {/* Stats Grid - 4 columns centered */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {stats.map((stat, index) => {
+            const counter = counters[index];
+            const displayValue = stat.suffix === "%" 
+              ? counter.count.toFixed(1) 
+              : Math.floor(counter.count).toLocaleString();
+            
+            return (
               <div 
                 key={index} 
-                className={`group flex items-center gap-4 p-5 glass-premium rounded-xl border border-primary/10 hover:border-primary/30 transition-all duration-500 hover-lift ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
-                style={{ transitionDelay: `${index * 100 + 300}ms` }}
+                className={`group text-center glass-premium rounded-2xl p-6 lg:p-8 border border-primary/10 hover:border-primary/30 transition-all duration-500 hover-lift ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100 + 200}ms` }}
               >
-                {/* Animated dot */}
-                <div className="relative">
-                  <div className="w-3 h-3 bg-primary rounded-full group-hover:animate-dot-pulse" />
-                  <div className="absolute inset-0 w-3 h-3 bg-primary rounded-full opacity-50 group-hover:animate-ping" />
+                {/* Icon */}
+                <div className={`w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 bg-gradient-to-br ${stat.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <stat.icon className="w-7 h-7 lg:w-8 lg:h-8 text-white" strokeWidth={2} />
                 </div>
                 
-                {/* Animated progress bar */}
-                <div className="flex-1">
-                  <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {feature}
+                {/* Counter */}
+                <div className="text-4xl lg:text-5xl font-bold mb-2 text-glow-strong">
+                  <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+                    {displayValue}{stat.suffix}
                   </span>
-                  <div className="mt-2 h-1 bg-muted rounded-full overflow-hidden">
-                    <div 
-                      className={`h-full bg-gradient-to-r from-primary to-purple-500 rounded-full transition-all duration-1000 ease-out ${isVisible ? 'w-full' : 'w-0'}`}
-                      style={{ transitionDelay: `${index * 200 + 500}ms` }}
-                    />
-                  </div>
+                </div>
+                
+                {/* Label */}
+                <p className="text-muted-foreground font-medium text-sm lg:text-base">
+                  {stat.label}
+                </p>
+                
+                {/* Animated underline */}
+                <div className="mt-4 h-1 bg-muted rounded-full overflow-hidden mx-auto max-w-[80px]">
+                  <div 
+                    className={`h-full bg-gradient-to-r ${stat.gradient} rounded-full transition-all duration-1000 ease-out ${isVisible ? 'w-full' : 'w-0'}`}
+                    style={{ transitionDelay: `${index * 150 + 500}ms` }}
+                  />
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
