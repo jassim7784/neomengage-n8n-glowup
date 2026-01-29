@@ -1,180 +1,167 @@
 
 
-## PHP Contact Form for Hostinger Hosting
+## Multi-Part Update Plan
 
-This plan will create a PHP-based contact form solution that works perfectly with Hostinger shared hosting, sending emails directly to info@neomengage.com.
+This plan covers 5 changes to improve the website's navigation, statistics, and content.
 
 ---
 
-### What We're Building
+### Summary of Changes
+
+| # | Request | File(s) to Modify |
+|---|---------|-------------------|
+| 1 | Remove "View Pricing" button, centralize "Get Started Today" | `ServicesSection.tsx`, `ProductsSection.tsx` |
+| 2 | Update stats with centralized layout | `StatsSection.tsx` (new design), `HeroSection.tsx` |
+| 3 | Update second address to UAE | `Footer.tsx` |
+| 4 | Add "Get Started" button to navbar | `Header.tsx` |
+| 5 | Rename RCS in navigation | `Header.tsx` |
+
+---
+
+### Part 1: Remove Pricing Buttons & Centralize CTA
+
+**ServicesSection.tsx Changes:**
+- Keep existing "Explore All Services" button centered at bottom (already centralized)
+- No pricing buttons to remove in this section
+
+**ProductsSection.tsx Changes:**
+- Remove individual "Get Started" buttons from each product card (lines 108-114)
+- Remove price display from each card (line 107)
+- Keep only the bottom centralized CTA section with "Contact Sales Team" button
+- Change button text to "Get Started Today" for consistency
+
+---
+
+### Part 2: Update Statistics (Centralized & Clear)
+
+**New Stats Values:**
+- Messages Sent: **15M+**
+- Clients Served: **273+**
+- Global Reach: **200+** (countries)
+- Uptime: **99.9%**
+
+**StatsSection.tsx - Complete Redesign:**
+Replace current single-counter design with a 4-stat grid layout:
 
 ```text
-┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
-│   React Frontend    │ ---> │    contact.php      │ ---> │ info@neomengage.com │
-│   (Your Website)    │ POST │  (Hostinger Server) │ MAIL │   (Your Inbox)      │
-└─────────────────────┘      └─────────────────────┘      └─────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│                    Our Impact in Numbers                │
+│                                                         │
+│   ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+│   │   15M+    │ │   273+    │ │   200+    │ │  99.9%   │
+│   │ Messages  │ │  Clients  │ │  Global   │ │  Uptime  │
+│   │   Sent    │ │  Served   │ │   Reach   │ │          │
+│   └───────────┘ └───────────┘ └───────────┘ └───────────┘
+│                                                         │
+│         All stats centralized and prominent             │
+└─────────────────────────────────────────────────────────┘
 ```
 
+- Create 4 animated counters side-by-side
+- Large, bold numbers with gradient text
+- Descriptive labels below each number
+- Icons for each stat (MessageSquare, Users, Globe, Shield)
+
+**HeroSection.tsx Changes:**
+- Update the existing 3-stat row (lines 29-42) to match new values:
+  - 99.9% Uptime ✓ (keep)
+  - Change "100M+" to "15M+" Messages Sent
+  - Change "Global" to "200+ Countries"
+
 ---
 
-### Files to Create/Modify
+### Part 3: Update Second Address to UAE
 
-| File | Action | Purpose |
-|------|--------|---------|
-| `public/contact.php` | Create | PHP script that handles email sending |
-| `src/pages/Contact.tsx` | Modify | Update form to POST to PHP instead of Supabase |
-| `src/components/EnquireSection.tsx` | Modify | Update form to POST to PHP instead of Supabase |
+**Footer.tsx Changes:**
+Update lines 36-39 from placeholder text to:
 
----
-
-### Part 1: Create contact.php
-
-**Location:** `public/contact.php`
-
-This PHP file will:
-- Accept POST requests from your React form
-- Validate all required fields (name, email, phone)
-- Sanitize inputs to prevent spam/injection attacks
-- Send formatted email to info@neomengage.com
-- Return JSON response (success or error)
-
-**Security Features:**
-- Input sanitization using `htmlspecialchars()` and `filter_var()`
-- Email format validation
-- Required field checks
-- CORS headers for your domain only
-- Prevents header injection attacks
-
-**Email Format:**
 ```text
-Subject: New Contact Form Submission - NeoMengage
-
-From: John Doe
-Email: john@example.com
-Phone: +44 123456789
-
-Service Inquiry:
-Looking for bulk SMS services...
-
----
-Submitted: 2026-01-26 14:30:00
+Before: "Second Address (Please provide your second address)"
+After:  "United Arab Emirates"
 ```
 
 ---
 
-### Part 2: Update React Components
+### Part 4: Add "Get Started" Button to Navbar
 
-**Changes to Contact.tsx and EnquireSection.tsx:**
+**Header.tsx Changes:**
 
-1. Remove Supabase import (no longer needed for form)
-2. Change `handleSubmit` function to:
-   - POST form data to `/contact.php`
-   - Use `FormData` or JSON body
-   - Handle JSON response
-   - Show success/error toast based on response
+**Desktop Navigation:**
+- Add "Get Started" button to the right side of the navbar
+- Position it after the navigation menu items
+- Use prominent button styling (gradient or primary variant)
+- Link to `/contact` page
 
-**New handleSubmit logic:**
+**Mobile Navigation:**
+- Add "Get Started" button at the bottom of mobile menu
+- Make it full-width and prominent
+
+**Layout adjustment:**
+- Logo remains on the left (already positioned)
+- Navigation menu stays centered
+- New "Get Started" button on the far right
+
 ```text
-1. User clicks Submit
-2. Validate consent checkbox (client-side)
-3. POST to /contact.php with form data
-4. PHP validates and sends email
-5. PHP returns JSON: { success: true/false, message: "..." }
-6. React shows toast notification
-7. Reset form on success
+┌─────────────────────────────────────────────────────────┐
+│  [LOGO]      Home | Services | Products | Blogs | Contact    [Get Started] │
+│  ← Left                    Center                            Right →       │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### Part 3: Hostinger Deployment Instructions
+### Part 5: Rename Rich Communication Solution
 
-**Step 1: Build Your React App**
-```bash
-npm run build
+**Header.tsx Changes:**
+
+Update in 2 locations:
+1. **Desktop menu** (line 176): "Rich Communication Solution" → "Rich Communication Solution (RCS)"
+2. **Mobile menu** (line 291): "Rich Communication Solution" → "Rich Communication Solution (RCS)"
+
+---
+
+### Technical Implementation Details
+
+**StatsSection.tsx - New Stats Array:**
+```typescript
+const stats = [
+  { value: 15, suffix: "M+", label: "Messages Sent", icon: MessageSquare },
+  { value: 273, suffix: "+", label: "Clients Served", icon: Users },
+  { value: 200, suffix: "+", label: "Global Reach", icon: Globe },
+  { value: 99.9, suffix: "%", label: "Uptime", icon: Shield }
+];
 ```
 
-**Step 2: Upload Files to Hostinger**
-```text
-Hostinger File Manager Structure:
-public_html/
-├── index.html          (from dist/)
-├── assets/             (from dist/)
-├── contact.php         (NEW - email handler)
-├── .htaccess           (for SPA routing)
-└── [other dist files]
+**Header.tsx - Button Addition:**
+```tsx
+<Button asChild className="ml-auto">
+  <a href="/contact">Get Started</a>
+</Button>
 ```
 
-**Step 3: Create .htaccess for SPA Routing**
-```apache
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+---
 
-  # Don't rewrite contact.php - let PHP handle it
-  RewriteRule ^contact\.php$ - [L]
+### Visual Preview After Changes
 
-  # SPA routing for React
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
-</IfModule>
-```
+**Navbar:**
+- Logo (left) → Nav Links (center) → Get Started Button (right)
 
-**Step 4: Test the Form**
-1. Visit your website
-2. Fill out contact form
-3. Check info@neomengage.com for the email
-4. Verify success message appears
+**Stats Section:**
+- 4 large stat cards in a row, each with icon, number, and label
+- Numbers animate on scroll into view
+
+**Footer:**
+- UK Address + UAE Address displayed
 
 ---
 
-### Technical Details
+### Files Modified
 
-**PHP contact.php Features:**
-
-| Feature | Implementation |
-|---------|----------------|
-| Input Sanitization | `htmlspecialchars()`, `trim()` |
-| Email Validation | `filter_var($email, FILTER_VALIDATE_EMAIL)` |
-| Required Fields | Check if empty after sanitization |
-| Anti-Spam | Basic field length limits, sanitization |
-| Email Headers | Proper From, Reply-To, Content-Type |
-| Response Format | JSON with success boolean and message |
-| CORS | Headers for cross-origin requests |
-
-**Form Field Mapping:**
-
-| React Field | PHP Variable | Email Display |
-|-------------|--------------|---------------|
-| `name` | `$name` | "From: John Doe" |
-| `email` | `$email` | "Email: john@example.com" |
-| `phone` | `$phone` | "Phone: +44..." |
-| `service` | `$service` | "Service Inquiry: ..." |
-| `consent` | `$consent` | (Not shown in email) |
-
----
-
-### Why This Works on Hostinger
-
-1. **Hostinger supports PHP** - All shared hosting plans include PHP
-2. **Built-in mail()** - PHP's mail function works with Hostinger's SMTP
-3. **No external services** - No API keys or third-party accounts needed
-4. **Same folder** - PHP and HTML files can live together in public_html
-
----
-
-### Cost
-
-**$0 additional cost** - Uses Hostinger's built-in email sending capability
-
----
-
-### After Deployment Checklist
-
-- [ ] Form submits without errors
-- [ ] Email arrives at info@neomengage.com
-- [ ] Success message displays in browser
-- [ ] All form fields appear in email
-- [ ] Consent validation works (error if unchecked)
+| File | Changes |
+|------|---------|
+| `src/components/Header.tsx` | Add Get Started button, rename RCS |
+| `src/components/Footer.tsx` | Update second address to UAE |
+| `src/components/StatsSection.tsx` | Complete redesign with 4 stats |
+| `src/components/HeroSection.tsx` | Update stat values |
+| `src/components/ProductsSection.tsx` | Remove individual pricing, centralize CTA |
 
