@@ -98,13 +98,12 @@ const A2PSMSService = () => {
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Leverage the power of A2P SMS to engage your customers, enhance your brand presence, and drive business growth. Our reliable and scalable A2P SMS service ensures your messages are delivered promptly and effectively.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button size="lg" className="px-8 py-6 rounded-full hover:shadow-neon transition-all group" onClick={() => navigate('/contact')}>
                 <MessageSquare className="w-5 h-5 mr-2" />
                 Get Started Today
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-6 rounded-full" onClick={() => navigate('/contact')}>View Pricing</Button>
             </div>
           </div>
         </div>
