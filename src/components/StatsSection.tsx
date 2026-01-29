@@ -13,10 +13,10 @@ const StatsSection = () => {
   ];
 
   // Individual counter hooks for each stat
-  const counter1 = useCountUp(15, 2000);
-  const counter2 = useCountUp(273, 2000);
-  const counter3 = useCountUp(200, 2000);
-  const counter4 = useCountUp(99.9, 2000);
+  const counter1 = useCountUp(15, 1500);
+  const counter2 = useCountUp(273, 1500);
+  const counter3 = useCountUp(200, 1500);
+  const counter4 = useCountUp(99.9, 1500);
   const counters = [counter1, counter2, counter3, counter4];
 
   useEffect(() => {
@@ -55,33 +55,25 @@ const StatsSection = () => {
             return (
               <div 
                 key={index} 
-                className={`group text-center glass-premium rounded-2xl p-6 lg:p-8 border border-primary/10 hover:border-primary/30 transition-all duration-500 hover-lift ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group text-center glass-premium rounded-2xl p-8 lg:p-10 border border-primary/10 hover:border-primary/30 transition-all duration-500 hover-lift ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${index * 100 + 200}ms` }}
               >
-                {/* Icon */}
-                <div className={`w-14 h-14 lg:w-16 lg:h-16 mx-auto mb-4 bg-gradient-to-br ${stat.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className="w-7 h-7 lg:w-8 lg:h-8 text-white" strokeWidth={2} />
-                </div>
-                
-                {/* Counter */}
-                <div className="text-4xl lg:text-5xl font-bold mb-2 text-glow-strong">
+                {/* Number - HUGE and centered */}
+                <div className="text-5xl md:text-6xl lg:text-7xl font-black mb-1 text-center">
                   <span className="bg-gradient-to-r from-primary via-purple-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
-                    {displayValue}{stat.suffix}
+                    {displayValue}
                   </span>
                 </div>
                 
+                {/* Suffix - Below number, still prominent */}
+                <div className="text-2xl md:text-3xl font-bold text-primary/80 mb-4">
+                  {stat.suffix}
+                </div>
+                
                 {/* Label */}
-                <p className="text-muted-foreground font-medium text-sm lg:text-base">
+                <p className="text-muted-foreground font-medium text-base lg:text-lg">
                   {stat.label}
                 </p>
-                
-                {/* Animated underline */}
-                <div className="mt-4 h-1 bg-muted rounded-full overflow-hidden mx-auto max-w-[80px]">
-                  <div 
-                    className={`h-full bg-gradient-to-r ${stat.gradient} rounded-full transition-all duration-1000 ease-out ${isVisible ? 'w-full' : 'w-0'}`}
-                    style={{ transitionDelay: `${index * 150 + 500}ms` }}
-                  />
-                </div>
               </div>
             );
           })}
