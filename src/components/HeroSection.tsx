@@ -26,18 +26,22 @@ const HeroSection = () => {
           </p>
 
           {/* Stats Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-foreground mb-2">15M+</div>
+              <div className="text-muted-foreground">Messages Sent</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-foreground mb-2">273+</div>
+              <div className="text-muted-foreground">Clients Served</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-foreground mb-2">200+</div>
+              <div className="text-muted-foreground">Global Reach</div>
+            </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-foreground mb-2">99.9%</div>
-              <div className="text-muted-foreground">Uptime Guarantee</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-foreground mb-2">100M+</div>
-              <div className="text-muted-foreground">Messages/Month</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-foreground mb-2">Global</div>
-              <div className="text-muted-foreground">Coverage</div>
+              <div className="text-muted-foreground">Uptime</div>
             </div>
           </div>
 

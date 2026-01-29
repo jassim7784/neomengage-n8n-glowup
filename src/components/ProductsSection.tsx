@@ -103,16 +103,6 @@ const ProductsSection = () => {
                   ))}
                 </div>
                 
-                <div className="border-t border-purple-500/20 pt-6">
-                  <div className="text-2xl font-bold text-foreground mb-4">{product.price}</div>
-                  <Button 
-                    variant="default" 
-                    className="w-full group-hover:scale-105 transition-transform duration-300"
-                  >
-                    Get Started
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </div>
               </div>
             </div>
           ))}
@@ -125,9 +115,11 @@ const ProductsSection = () => {
             <p className="text-lg text-muted-foreground mb-8">
               Contact our experts to discuss your specific requirements and get a tailored solution.
             </p>
-            <Button variant="default" size="lg" className="hover-lift">
-              Contact Sales Team
-              <ArrowRight className="w-5 h-5" />
+            <Button variant="default" size="lg" className="hover-lift" asChild>
+              <a href="/contact">
+                Get Started Today
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </Button>
           </div>
         </div>

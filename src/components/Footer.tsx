@@ -35,7 +35,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={20} className="text-primary mt-1 flex-shrink-0" />
-                <p>Second Address<br />(Please provide your second address)</p>
+                <p>United Arab Emirates</p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={20} className="text-primary flex-shrink-0" />
