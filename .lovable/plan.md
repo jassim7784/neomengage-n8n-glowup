@@ -1,167 +1,112 @@
 
 
-## Multi-Part Update Plan
+## Navbar Alignment Fix
 
-This plan covers 5 changes to improve the website's navigation, statistics, and content.
+This plan will restructure the navbar to achieve perfect three-column alignment: **LOGO (left) | NAV BAR (center) | Get Started (right)**
+
+---
+
+### Current Issue
+
+The current implementation uses:
+- Absolute positioning with manual offset for the navigation menu
+- `ml-auto` on the button which doesn't create true symmetry
+
+This causes the nav items to appear off-center because the offset doesn't account for the button width.
+
+---
+
+### Solution: Flexbox Three-Column Layout
+
+Replace the current layout with a true three-column flexbox structure where:
+- Left column (Logo): Fixed width, left-aligned
+- Center column (Nav): Flexible, truly centered
+- Right column (Button): Fixed width, right-aligned
+
+---
+
+### Layout Diagram
+
+```text
+┌──────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│  [LOGO]          Home | Services | Products | Blogs | Contact    [Get Started]
+│                                                                  │
+│  ◄─── flex-1 ───►  ◄────────── flex-1 (centered) ──────────►  ◄─── flex-1 ───►
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Technical Changes to Header.tsx
+
+**Line 55 - Container div:**
+Change from:
+```tsx
+<div className="flex items-center justify-between w-full relative">
+```
+To:
+```tsx
+<div className="flex items-center w-full">
+```
+
+**Lines 57-65 - Logo section:**
+Wrap in a flex container with fixed width:
+```tsx
+<div className="flex-1 flex justify-start">
+  <a href="/" className="flex items-center">
+    <!-- Logo components -->
+  </a>
+</div>
+```
+
+**Lines 67-204 - Navigation Menu:**
+- Remove `absolute left-[calc(50%+80px)] transform -translate-x-1/2`
+- Wrap in a flex container that centers the content:
+```tsx
+<div className="hidden md:flex flex-1 justify-center">
+  <NavigationMenu>
+    <!-- Navigation items -->
+  </NavigationMenu>
+</div>
+```
+
+**Lines 206-209 - Get Started Button:**
+Wrap in a flex container with fixed width:
+```tsx
+<div className="hidden md:flex flex-1 justify-end">
+  <Button asChild className="bg-primary hover:bg-primary/90">
+    <a href="/contact">Get Started</a>
+  </Button>
+</div>
+```
 
 ---
 
 ### Summary of Changes
 
-| # | Request | File(s) to Modify |
-|---|---------|-------------------|
-| 1 | Remove "View Pricing" button, centralize "Get Started Today" | `ServicesSection.tsx`, `ProductsSection.tsx` |
-| 2 | Update stats with centralized layout | `StatsSection.tsx` (new design), `HeroSection.tsx` |
-| 3 | Update second address to UAE | `Footer.tsx` |
-| 4 | Add "Get Started" button to navbar | `Header.tsx` |
-| 5 | Rename RCS in navigation | `Header.tsx` |
+| Element | Before | After |
+|---------|--------|-------|
+| Container | `justify-between relative` | Simple flex row |
+| Logo | Direct child, no wrapper | Wrapped in `flex-1 justify-start` |
+| Navigation | `absolute` with offset | Wrapped in `flex-1 justify-center` |
+| Button | `ml-auto` | Wrapped in `flex-1 justify-end` |
 
 ---
 
-### Part 1: Remove Pricing Buttons & Centralize CTA
+### File Modified
 
-**ServicesSection.tsx Changes:**
-- Keep existing "Explore All Services" button centered at bottom (already centralized)
-- No pricing buttons to remove in this section
-
-**ProductsSection.tsx Changes:**
-- Remove individual "Get Started" buttons from each product card (lines 108-114)
-- Remove price display from each card (line 107)
-- Keep only the bottom centralized CTA section with "Contact Sales Team" button
-- Change button text to "Get Started Today" for consistency
+| File | Change |
+|------|--------|
+| `src/components/Header.tsx` | Restructure layout to three-column flexbox |
 
 ---
 
-### Part 2: Update Statistics (Centralized & Clear)
+### Result
 
-**New Stats Values:**
-- Messages Sent: **15M+**
-- Clients Served: **273+**
-- Global Reach: **200+** (countries)
-- Uptime: **99.9%**
-
-**StatsSection.tsx - Complete Redesign:**
-Replace current single-counter design with a 4-stat grid layout:
-
-```text
-┌─────────────────────────────────────────────────────────┐
-│                    Our Impact in Numbers                │
-│                                                         │
-│   ┌───────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
-│   │   15M+    │ │   273+    │ │   200+    │ │  99.9%   │
-│   │ Messages  │ │  Clients  │ │  Global   │ │  Uptime  │
-│   │   Sent    │ │  Served   │ │   Reach   │ │          │
-│   └───────────┘ └───────────┘ └───────────┘ └───────────┘
-│                                                         │
-│         All stats centralized and prominent             │
-└─────────────────────────────────────────────────────────┘
-```
-
-- Create 4 animated counters side-by-side
-- Large, bold numbers with gradient text
-- Descriptive labels below each number
-- Icons for each stat (MessageSquare, Users, Globe, Shield)
-
-**HeroSection.tsx Changes:**
-- Update the existing 3-stat row (lines 29-42) to match new values:
-  - 99.9% Uptime ✓ (keep)
-  - Change "100M+" to "15M+" Messages Sent
-  - Change "Global" to "200+ Countries"
-
----
-
-### Part 3: Update Second Address to UAE
-
-**Footer.tsx Changes:**
-Update lines 36-39 from placeholder text to:
-
-```text
-Before: "Second Address (Please provide your second address)"
-After:  "United Arab Emirates"
-```
-
----
-
-### Part 4: Add "Get Started" Button to Navbar
-
-**Header.tsx Changes:**
-
-**Desktop Navigation:**
-- Add "Get Started" button to the right side of the navbar
-- Position it after the navigation menu items
-- Use prominent button styling (gradient or primary variant)
-- Link to `/contact` page
-
-**Mobile Navigation:**
-- Add "Get Started" button at the bottom of mobile menu
-- Make it full-width and prominent
-
-**Layout adjustment:**
-- Logo remains on the left (already positioned)
-- Navigation menu stays centered
-- New "Get Started" button on the far right
-
-```text
-┌─────────────────────────────────────────────────────────┐
-│  [LOGO]      Home | Services | Products | Blogs | Contact    [Get Started] │
-│  ← Left                    Center                            Right →       │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
-### Part 5: Rename Rich Communication Solution
-
-**Header.tsx Changes:**
-
-Update in 2 locations:
-1. **Desktop menu** (line 176): "Rich Communication Solution" → "Rich Communication Solution (RCS)"
-2. **Mobile menu** (line 291): "Rich Communication Solution" → "Rich Communication Solution (RCS)"
-
----
-
-### Technical Implementation Details
-
-**StatsSection.tsx - New Stats Array:**
-```typescript
-const stats = [
-  { value: 15, suffix: "M+", label: "Messages Sent", icon: MessageSquare },
-  { value: 273, suffix: "+", label: "Clients Served", icon: Users },
-  { value: 200, suffix: "+", label: "Global Reach", icon: Globe },
-  { value: 99.9, suffix: "%", label: "Uptime", icon: Shield }
-];
-```
-
-**Header.tsx - Button Addition:**
-```tsx
-<Button asChild className="ml-auto">
-  <a href="/contact">Get Started</a>
-</Button>
-```
-
----
-
-### Visual Preview After Changes
-
-**Navbar:**
-- Logo (left) → Nav Links (center) → Get Started Button (right)
-
-**Stats Section:**
-- 4 large stat cards in a row, each with icon, number, and label
-- Numbers animate on scroll into view
-
-**Footer:**
-- UK Address + UAE Address displayed
-
----
-
-### Files Modified
-
-| File | Changes |
-|------|---------|
-| `src/components/Header.tsx` | Add Get Started button, rename RCS |
-| `src/components/Footer.tsx` | Update second address to UAE |
-| `src/components/StatsSection.tsx` | Complete redesign with 4 stats |
-| `src/components/HeroSection.tsx` | Update stat values |
-| `src/components/ProductsSection.tsx` | Remove individual pricing, centralize CTA |
+- Logo stays firmly on the left
+- Navigation links are perfectly centered in the viewport
+- "Get Started" button is aligned to the right
+- Equal spacing creates visual balance
 
