@@ -38,7 +38,7 @@ const countryCodes = [
 ];
 
 const Contact = () => {
-  // Animation hook for scroll-based reveal effects
+  // Animation hooks
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
