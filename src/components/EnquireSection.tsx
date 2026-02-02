@@ -16,20 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const countryCodes = [
-  { code: "+44", country: "UK", flag: "🇬🇧" },
-  { code: "+1", country: "USA", flag: "🇺🇸" },
-  { code: "+971", country: "UAE", flag: "🇦🇪" },
-  { code: "+91", country: "India", flag: "🇮🇳" },
-  { code: "+65", country: "Singapore", flag: "🇸🇬" },
-  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
-  { code: "+61", country: "Australia", flag: "🇦🇺" },
-  { code: "+49", country: "Germany", flag: "🇩🇪" },
-  { code: "+33", country: "France", flag: "🇫🇷" },
-  { code: "+92", country: "Pakistan", flag: "🇵🇰" },
-  { code: "+86", country: "China", flag: "🇨🇳" },
-  { code: "+81", country: "Japan", flag: "🇯🇵" },
-];
+import { countryCodes } from "@/data/countryCodes";
 
 const EnquireSection = () => {
   const { toast } = useToast();
@@ -181,7 +168,7 @@ const EnquireSection = () => {
                       <SelectTrigger className="w-[110px] bg-background/50">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent className="bg-popover">
+                      <SelectContent className="bg-popover max-h-[300px]">
                         {countryCodes.map((country) => (
                           <SelectItem key={country.code} value={country.code}>
                             {country.flag} {country.code}
