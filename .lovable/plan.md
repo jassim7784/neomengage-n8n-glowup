@@ -1,143 +1,105 @@
 
 
-## Add Country Code Selector to Contact Forms
-
-This plan adds a country code dropdown selector to the phone input field in both the EnquireSection (homepage) and Contact page forms.
+## Implementation Plan: Favicon, Country Codes, Locations & PHP Form
 
 ---
 
-### Design
+### 1. Update Favicon
 
-The phone field will be split into two parts:
-- A dropdown selector for country code (with flag emoji and dial code)
-- The phone number input field
+**Action:** Copy the uploaded favicon image to the public folder and update the HTML reference.
 
-```text
-┌──────────────────────────────────────────────────────────┐
-│  ┌─────────────────┐  ┌────────────────────────────────┐ │
-│  │ 🇬🇧 +44      ▼ │  │ Phone Number*                  │ │
-│  └─────────────────┘  └────────────────────────────────┘ │
-└──────────────────────────────────────────────────────────┘
-```
+**Files:**
+- Copy `user-uploads://favicon.png` to `public/favicon.png`
+- Update `index.html` to reference the new favicon
 
 ---
 
-### Country Codes List
+### 2. Comprehensive Country Code Selector
 
-A focused list of commonly used country codes:
-- UK (+44) - Default
-- USA (+1)
-- UAE (+971)
-- India (+91)
-- Singapore (+65)
-- Saudi Arabia (+966)
-- Australia (+61)
-- Germany (+49)
-- France (+33)
-- And more...
-
----
-
-### Changes
+**Approach:** Replace the limited dropdown with a searchable input that includes all 200+ country codes worldwide. Users can either:
+- Type to search/filter country codes
+- Scroll through the complete list
 
 **Files to modify:**
-1. `src/components/EnquireSection.tsx`
-2. `src/pages/Contact.tsx`
+- `src/components/EnquireSection.tsx`
+- `src/pages/Contact.tsx`
 
-**For each file:**
-
-1. **Import Select components:**
-```tsx
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-```
-
-2. **Add country codes data array:**
+**New country codes list** (comprehensive - 240+ countries):
 ```tsx
 const countryCodes = [
-  { code: "+44", country: "UK", flag: "🇬🇧" },
-  { code: "+1", country: "USA", flag: "🇺🇸" },
-  { code: "+971", country: "UAE", flag: "🇦🇪" },
-  { code: "+91", country: "India", flag: "🇮🇳" },
-  { code: "+65", country: "Singapore", flag: "🇸🇬" },
-  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
-  { code: "+61", country: "Australia", flag: "🇦🇺" },
-  { code: "+49", country: "Germany", flag: "🇩🇪" },
-  { code: "+33", country: "France", flag: "🇫🇷" },
-  { code: "+92", country: "Pakistan", flag: "🇵🇰" },
-  { code: "+86", country: "China", flag: "🇨🇳" },
-  { code: "+81", country: "Japan", flag: "🇯🇵" },
+  { code: "+93", country: "Afghanistan", flag: "🇦🇫" },
+  { code: "+355", country: "Albania", flag: "🇦🇱" },
+  { code: "+213", country: "Algeria", flag: "🇩🇿" },
+  // ... all countries A-Z
+  { code: "+263", country: "Zimbabwe", flag: "🇿🇼" },
 ];
 ```
 
-3. **Update form state** to include `countryCode`:
-```tsx
-const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  countryCode: "+44",  // Default to UK
-  phone: "",
-  service: "",
-  consent: false
-});
-```
-
-4. **Update phone input row** to include select + input:
-```tsx
-<div className="flex gap-2">
-  <Select 
-    value={formData.countryCode} 
-    onValueChange={(value) => setFormData({ ...formData, countryCode: value })}
-  >
-    <SelectTrigger className="w-[120px] bg-background/50">
-      <SelectValue />
-    </SelectTrigger>
-    <SelectContent>
-      {countryCodes.map((country) => (
-        <SelectItem key={country.code} value={country.code}>
-          {country.flag} {country.code}
-        </SelectItem>
-      ))}
-    </SelectContent>
-  </Select>
-  <Input
-    type="tel"
-    placeholder="Phone*"
-    value={formData.phone}
-    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-    required
-    className="flex-1 bg-background/50"
-  />
-</div>
-```
-
-5. **Update form submission** to combine country code with phone:
-```tsx
-body: JSON.stringify({
-  ...formData,
-  phone: `${formData.countryCode} ${formData.phone}`
-})
-```
-
-6. **Update form reset** to include countryCode:
-```tsx
-setFormData({ name: "", email: "", countryCode: "+44", phone: "", service: "", consent: false });
-```
+The Select component already supports scrolling through long lists, so this will work seamlessly.
 
 ---
 
-### Summary
+### 3. Update Office Locations
 
-| File | Changes |
-|------|---------|
-| `src/components/EnquireSection.tsx` | Add country code selector, update state, modify submission |
-| `src/pages/Contact.tsx` | Add country code selector, update state, modify submission |
+**Current locations:**
+1. UK Office (keep)
+2. London (remove)
+3. Singapore (remove)
+
+**New locations:**
+1. UK Office (keep as-is)
+2. UAE Office (add)
+
+**File:** `src/pages/Contact.tsx`
+
+**Change the offices array:**
+```tsx
+const offices = [
+  { city: "UK Office", address: "71 A Meadowlands, Downpatrick", details: "Co Down, BT30 6HG, UK" },
+  { city: "UAE Office", address: "Business Bay, Dubai", details: "United Arab Emirates" }
+];
+```
+
+The grid will automatically adjust to 2 columns on desktop.
 
 ---
 
-### Result
+### 4. PHP Contact Form
 
-- Users can select their country code from a dropdown with flag emojis
-- UK (+44) is the default selection
-- Phone number is submitted as `+44 1234567890` format
-- Consistent design across both contact forms
+The `public/contact.php` file is already fully functional and well-written. It:
+- Accepts JSON POST requests
+- Validates and sanitizes all inputs
+- Sends email to info@neomengage.com
+- Returns JSON responses for toast notifications
+
+**For Hostinger deployment:**
+The PHP file will work once deployed to Hostinger. The form already submits to `/contact.php` which will be served by Hostinger's PHP server.
+
+**No code changes needed** - the file is production-ready.
+
+---
+
+### Summary of Changes
+
+| Task | File(s) | Action |
+|------|---------|--------|
+| Favicon | `public/favicon.png`, `index.html` | Copy image, update reference |
+| Country codes | `EnquireSection.tsx`, `Contact.tsx` | Add comprehensive 240+ country list |
+| Office locations | `Contact.tsx` | Replace London/Singapore with UAE |
+| PHP form | No changes | Already working - deploy to Hostinger |
+
+---
+
+### Technical Notes
+
+**Country codes implementation:**
+- The Select component with ScrollArea handles large lists well
+- Countries sorted alphabetically for easy finding
+- Flag emojis provide visual identification
+
+**Hostinger deployment:**
+Once you upload the built files to Hostinger:
+1. The `contact.php` file goes in the same directory as your HTML
+2. PHP mail() function should work with Hostinger's default config
+3. Forms will automatically POST to the PHP endpoint
 
