@@ -22,20 +22,7 @@ import GlowingCard from "@/components/ui/GlowingCard";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
-const countryCodes = [
-  { code: "+44", country: "UK", flag: "🇬🇧" },
-  { code: "+1", country: "USA", flag: "🇺🇸" },
-  { code: "+971", country: "UAE", flag: "🇦🇪" },
-  { code: "+91", country: "India", flag: "🇮🇳" },
-  { code: "+65", country: "Singapore", flag: "🇸🇬" },
-  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
-  { code: "+61", country: "Australia", flag: "🇦🇺" },
-  { code: "+49", country: "Germany", flag: "🇩🇪" },
-  { code: "+33", country: "France", flag: "🇫🇷" },
-  { code: "+92", country: "Pakistan", flag: "🇵🇰" },
-  { code: "+86", country: "China", flag: "🇨🇳" },
-  { code: "+81", country: "Japan", flag: "🇯🇵" },
-];
+import { countryCodes } from "@/data/countryCodes";
 
 const Contact = () => {
   // Animation hooks
@@ -120,8 +107,7 @@ const Contact = () => {
 
   const offices = [
     { city: "UK Office", address: "71 A Meadowlands, Downpatrick", details: "Co Down, BT30 6HG, UK" },
-    { city: "London", address: "456 Tech Street, Floor 5", details: "London, UK EC1A 1BB" },
-    { city: "Singapore", address: "789 Innovation Drive, Level 10", details: "Singapore 018956" }
+    { city: "UAE Office", address: "Business Bay, Dubai", details: "United Arab Emirates" }
   ];
 
   return (
@@ -214,7 +200,7 @@ const Contact = () => {
                           <SelectTrigger className="w-[110px] px-3 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20">
                             <SelectValue />
                           </SelectTrigger>
-                          <SelectContent className="bg-popover">
+                          <SelectContent className="bg-popover max-h-[300px]">
                             {countryCodes.map((country) => (
                               <SelectItem key={country.code} value={country.code}>
                                 {country.flag} {country.code}
@@ -275,7 +261,7 @@ const Contact = () => {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12 text-glow">Our Offices</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {offices.map((office, index) => (
               <TiltCard key={index}>
                 <Card className="glass-premium text-center h-full border-primary/10 hover:border-primary/30 transition-all group">
