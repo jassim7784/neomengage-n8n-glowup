@@ -14,12 +14,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Send, Sparkles } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import TiltCard from "@/components/ui/TiltCard";
 import GlowingCard from "@/components/ui/GlowingCard";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+
+const countryCodes = [
+  { code: "+44", country: "UK", flag: "🇬🇧" },
+  { code: "+1", country: "USA", flag: "🇺🇸" },
+  { code: "+971", country: "UAE", flag: "🇦🇪" },
+  { code: "+91", country: "India", flag: "🇮🇳" },
+  { code: "+65", country: "Singapore", flag: "🇸🇬" },
+  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
+  { code: "+61", country: "Australia", flag: "🇦🇺" },
+  { code: "+49", country: "Germany", flag: "🇩🇪" },
+  { code: "+33", country: "France", flag: "🇫🇷" },
+  { code: "+92", country: "Pakistan", flag: "🇵🇰" },
+  { code: "+86", country: "China", flag: "🇨🇳" },
+  { code: "+81", country: "Japan", flag: "🇯🇵" },
+];
 
 const Contact = () => {
   // Animation hook for scroll-based reveal effects
@@ -31,6 +47,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+44",
     phone: "",
     service: "",
     consent: false
@@ -65,7 +82,10 @@ const Contact = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          phone: `${formData.countryCode} ${formData.phone}`
+        })
       });
 
       const result = await response.json();
@@ -76,7 +96,7 @@ const Contact = () => {
           title: "Message Sent!", 
           description: result.message || "We'll get back to you soon." 
         });
-        setFormData({ name: "", email: "", phone: "", service: "", consent: false });
+        setFormData({ name: "", email: "", countryCode: "+44", phone: "", service: "", consent: false });
       } else {
         throw new Error(result.message || 'Failed to send message');
       }
@@ -186,14 +206,31 @@ const Contact = () => {
                         required
                         className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                       />
-                      <Input
-                        type="tel"
-                        placeholder="Phone*"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                      />
+                      <div className="flex gap-2">
+                        <Select 
+                          value={formData.countryCode} 
+                          onValueChange={(value) => setFormData({ ...formData, countryCode: value })}
+                        >
+                          <SelectTrigger className="w-[110px] px-3 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:ring-2 focus:ring-primary/20">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent className="bg-popover">
+                            {countryCodes.map((country) => (
+                              <SelectItem key={country.code} value={country.code}>
+                                {country.flag} {country.code}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <Input
+                          type="tel"
+                          placeholder="Phone*"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          required
+                          className="flex-1 px-4 py-3 rounded-xl bg-background/50 border border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                        />
+                      </div>
                     </div>
                     <div>
                       <Textarea
