@@ -6,14 +6,14 @@ const StatsSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
   
   const stats = [
-    { value: 15, suffix: "M+", label: "Messages Sent", icon: MessageSquare, gradient: "from-blue-500 to-cyan-500" },
+    { value: 100, suffix: "M+", label: "Messages Sent", icon: MessageSquare, gradient: "from-blue-500 to-cyan-500" },
     { value: 273, suffix: "+", label: "Clients Served", icon: Users, gradient: "from-purple-500 to-pink-500" },
     { value: 200, suffix: "+", label: "Global Reach", icon: Globe, gradient: "from-green-500 to-emerald-500" },
     { value: 99.9, suffix: "%", label: "Uptime", icon: Shield, gradient: "from-orange-500 to-red-500" }
   ];
 
   // Individual counter hooks for each stat
-  const counter1 = useCountUp(15, 1500);
+  const counter1 = useCountUp(100, 1500);
   const counter2 = useCountUp(273, 1500);
   const counter3 = useCountUp(200, 1500);
   const counter4 = useCountUp(99.9, 1500);
