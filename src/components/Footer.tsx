@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="md:text-right md:ml-auto">
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-foreground">Contact</h3>
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-start gap-2">
