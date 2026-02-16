@@ -106,8 +106,7 @@ const Contact = () => {
   ];
 
   const offices = [
-    { city: "UK Office", address: "71 A Meadowlands, Downpatrick", details: "Co Down, BT30 6HG, UK" },
-    { city: "UAE Office", address: "Business Bay, Dubai", details: "United Arab Emirates" }
+    { city: "UK Office", address: "71 A Meadowlands, Downpatrick", details: "Co Down, BT30 6HG, UK" }
   ];
 
   return (
