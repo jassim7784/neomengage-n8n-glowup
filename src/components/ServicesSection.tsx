@@ -2,19 +2,20 @@ import { Send, Megaphone, Code2, Mic, Globe, MessageSquare, Mail, Bot } from "lu
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import GlowingCard from "@/components/ui/GlowingCard";
+import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
   
   const services = [
-    { title: "SMS Solutions", description: "Reach your customers with reliable, fast, and secure SMS messaging. Perfect for OTP, alerts, and promotional campaigns.", icon: Send, gradient: "from-blue-500 to-cyan-500" },
-    { title: "WhatsApp Business API", description: "Connect with customers on their preferred platform. Send rich media messages, notifications, and enable two-way conversations.", icon: MessageSquare, gradient: "from-green-500 to-emerald-500" },
-    { title: "Voice Solutions", description: "Deliver automated voice calls, OTP verification, and interactive voice response systems with crystal-clear quality.", icon: Mic, gradient: "from-purple-500 to-pink-500" },
-    { title: "Email Solutions", description: "Professional email marketing and transactional email services with high deliverability and detailed analytics.", icon: Mail, gradient: "from-orange-500 to-red-500" },
-    { title: "Chatbot Solutions", description: "AI-powered chatbots that handle customer queries 24/7, improve engagement, and reduce support costs.", icon: Bot, gradient: "from-indigo-500 to-blue-500" },
-    { title: "Rich Communication Services", description: "Next-generation messaging with rich media, branded experiences, and interactive features for enhanced engagement.", icon: Globe, gradient: "from-teal-500 to-cyan-500" },
-    { title: "VoIP Solutions", description: "Cost-effective voice communication with HD call quality, call routing, and advanced telephony features.", icon: Megaphone, gradient: "from-rose-500 to-pink-500" },
-    { title: "API Integration", description: "Developer-friendly APIs with comprehensive documentation, SDKs, and 99.9% uptime for seamless integration.", icon: Code2, gradient: "from-amber-500 to-orange-500" }
+    { title: "SMS Solutions", description: "Reach your customers with reliable, fast, and secure SMS messaging. Perfect for OTP, alerts, and promotional campaigns.", icon: Send, gradient: "from-blue-500 to-cyan-500", link: "/products/sms-solutions" },
+    { title: "WhatsApp Business API", description: "Connect with customers on their preferred platform. Send rich media messages, notifications, and enable two-way conversations.", icon: MessageSquare, gradient: "from-green-500 to-emerald-500", link: "/products/whatsapp-solutions" },
+    { title: "Voice Solutions", description: "Deliver automated voice calls, OTP verification, and interactive voice response systems with crystal-clear quality.", icon: Mic, gradient: "from-purple-500 to-pink-500", link: "/products/voice-solutions" },
+    { title: "Email Solutions", description: "Professional email marketing and transactional email services with high deliverability and detailed analytics.", icon: Mail, gradient: "from-orange-500 to-red-500", link: "/products/email-solutions" },
+    { title: "Chatbot Solutions", description: "AI-powered chatbots that handle customer queries 24/7, improve engagement, and reduce support costs.", icon: Bot, gradient: "from-indigo-500 to-blue-500", link: "/products/chatbot-solutions" },
+    { title: "Rich Communication Services", description: "Next-generation messaging with rich media, branded experiences, and interactive features for enhanced engagement.", icon: Globe, gradient: "from-teal-500 to-cyan-500", link: "/products/rcs-solutions" },
+    { title: "VoIP Solutions", description: "Cost-effective voice communication with HD call quality, call routing, and advanced telephony features.", icon: Megaphone, gradient: "from-rose-500 to-pink-500", link: "/products/voip-solutions" },
+    { title: "API Integration", description: "Developer-friendly APIs with comprehensive documentation, SDKs, and 99.9% uptime for seamless integration.", icon: Code2, gradient: "from-amber-500 to-orange-500", link: "/services/sms-api-integration" }
   ];
 
   return (
@@ -43,17 +44,16 @@ const ServicesSection = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm mb-4">{service.description}</p>
-                <Button variant="ghost" className="mt-2 text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold group/btn">
-                  Learn More <span className="inline-block group-hover/btn:translate-x-1 transition-transform">→</span>
-                </Button>
+                <Link to={service.link}>
+                  <Button variant="ghost" className="mt-2 text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold group/btn">
+                    Learn More <span className="inline-block group-hover/btn:translate-x-1 transition-transform">→</span>
+                  </Button>
+                </Link>
               </div>
             </GlowingCard>
           ))}
         </div>
 
-        <div className={`text-center mt-16 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Button size="lg" className="px-8 hover:shadow-neon transition-all">Explore All Services</Button>
-        </div>
       </div>
     </section>
   );

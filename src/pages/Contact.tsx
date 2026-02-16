@@ -202,8 +202,8 @@ const Contact = () => {
                           </SelectTrigger>
                           <SelectContent className="bg-popover max-h-[300px]">
                             {countryCodes.map((country) => (
-                              <SelectItem key={country.code} value={country.code}>
-                                {country.flag} {country.code}
+                              <SelectItem key={`${country.code}-${country.country}`} value={country.code}>
+                                {country.flag} {country.country} ({country.code})
                               </SelectItem>
                             ))}
                           </SelectContent>
