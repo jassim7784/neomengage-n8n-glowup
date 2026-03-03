@@ -29,6 +29,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isPricingOpen, setIsPricingOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +43,7 @@ const Header = () => {
     setIsMenuOpen(false);
     setIsServicesOpen(false);
     setIsProductsOpen(false);
+    setIsPricingOpen(false);
   };
 
   return (
@@ -193,6 +195,42 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-foreground hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
+                    Pricing
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[340px] gap-3 p-4 bg-background/95 backdrop-blur-xl border border-purple-500/20 shadow-xl">
+                      <li>
+                        <NavigationMenuLink href="/pricing/whatsapp" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+                              <MessageCircle className="w-5 h-5 text-emerald-400" />
+                            </div>
+                            <div>
+                              <div className="text-sm font-semibold leading-none mb-1">WhatsApp Business API Pricing</div>
+                              <p className="text-xs text-muted-foreground">Plans for WhatsApp messaging</p>
+                            </div>
+                          </div>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink href="/pricing/rcs" className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-lg bg-amber-500/15 flex items-center justify-center flex-shrink-0">
+                              <Sparkles className="w-5 h-5 text-amber-400" />
+                            </div>
+                            <div>
+                              <div className="text-sm font-semibold leading-none mb-1">RCS Pricing</div>
+                              <p className="text-xs text-muted-foreground">Rich Communication Services plans</p>
+                            </div>
+                          </div>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
                   <NavigationMenuLink href="https://uk.linkedin.com/company/neom-engage" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-smooth px-4 py-2 bg-transparent">
                     Blogs
                   </NavigationMenuLink>
@@ -304,6 +342,33 @@ const Header = () => {
                   <a href="/products/voip-solutions" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
                     <Headphones className="w-4 h-4 text-teal-400" />
                     VoIP Solution
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* Pricing Dropdown - Mobile */}
+            <div className="border-t border-purple-500/10">
+              <button
+                onClick={() => setIsPricingOpen(!isPricingOpen)}
+                className="flex items-center justify-between w-full py-3 text-foreground hover:text-primary transition-smooth font-medium"
+              >
+                <span>Pricing</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isPricingOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isPricingOpen && (
+                <div className="pl-4 pb-2 space-y-1">
+                  <a href="/pricing/whatsapp" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <div className="w-7 h-7 rounded-md bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    WhatsApp Business API Pricing
+                  </a>
+                  <a href="/pricing/rcs" onClick={closeMenu} className="flex items-center gap-3 py-2 text-muted-foreground hover:text-primary transition-smooth">
+                    <div className="w-7 h-7 rounded-md bg-amber-500/15 flex items-center justify-center flex-shrink-0">
+                      <Sparkles className="w-4 h-4 text-amber-400" />
+                    </div>
+                    RCS Pricing
                   </a>
                 </div>
               )}

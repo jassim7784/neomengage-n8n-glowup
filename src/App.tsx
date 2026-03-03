@@ -22,6 +22,10 @@ import ChatbotSolutions from "./pages/products/ChatbotSolutions";
 import RichCommunicationSolutions from "./pages/products/RichCommunicationSolutions";
 import VoIPSolutions from "./pages/products/VoIPSolutions";
 
+// Pricing Pages
+import WhatsAppPricing from "./pages/pricing/WhatsAppPricing";
+import RCSPricing from "./pages/pricing/RCSPricing";
+
 // Other Pages
 import Contact from "./pages/Contact";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -54,6 +58,10 @@ const App = () => (
           <Route path="/products/rcs-solutions" element={<RichCommunicationSolutions />} />
           <Route path="/products/voip-solutions" element={<VoIPSolutions />} />
           
+          {/* Pricing Routes */}
+          <Route path="/pricing/whatsapp" element={<WhatsAppPricing />} />
+          <Route path="/pricing/rcs" element={<RCSPricing />} />
+
           {/* Legal Pages */}
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
